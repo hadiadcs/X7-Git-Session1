@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Fundamentals - Interactive Presentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Introduction -->
+        <div class="slide active">
+            <div class="intro-icon">⚡</div>
+            <h1>Git Fundamentals</h1>
+            <p style="text-align: center; font-size: 1.4em; color: #64748b; margin-bottom: 40px;">
+                Master the Essential Version Control System
+            </p>
+            <div style="text-align: center;">
+                <h3>What You'll Learn:</h3>
+                <ul style="list-style: none; margin-left: 0;">
+                    <li>✓ What version control is (explained for everyone)</li>
+                    <li>✓ Why version control exists and what problems it solves</li>
+                    <li>✓ Git hosting platforms and why companies use them</li>
+                    <li>✓ What Git is and how it works</li>
+                    <li>✓ How Git is essential across all tech roles</li>
+                    <li>✓ How to install and set up Git</li>
+                    <li>✓ Essential Git commands and workflow</li>
+                    <li>✓ Branching, merging, and collaboration</li>
+                    <li>✓ Best practices and troubleshooting</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 2: What is Version Control? (For Non-Developers) -->
+        <div class="slide">
+            <h2>What is Version Control?</h2>
+            <p>Version control is like having a detailed history book for your work, but much more powerful. Think of it as a system that remembers every change you make.</p>
+            
+            <h3>Real-World Analogies:</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Google Docs History</h4>
+                    <p>Just like how Google Docs shows you every edit made to a document, who made it, and when - but for any type of file.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Save Games</h4>
+                    <p>Like having multiple save slots in a video game. You can go back to any previous "save point" if something goes wrong.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Photo Albums</h4>
+                    <p>Imagine a photo album that automatically takes a picture every time you change something, with notes about what changed.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Legal Documents</h4>
+                    <p>Like how lawyers track changes in contracts - every revision is documented, dated, and can be undone.</p>
+                </div>
+            </div>
+
+            <h3>What Version Control Tracks:</h3>
+            <ul>
+                <li><strong>What changed:</strong> Exactly which lines, words, or parts were modified</li>
+                <li><strong>When it changed:</strong> Precise timestamp of every modification</li>
+                <li><strong>Who changed it:</strong> Which person made each change</li>
+                <li><strong>Why it changed:</strong> Notes explaining the reason for each change</li>
+                <li><strong>How to undo:</strong> Ability to reverse any change instantly</li>
+            </ul>
+
+            <h3>Who Uses Version Control?</h3>
+            <div style="background: #f1f5f9; padding: 25px; border-radius: 10px; margin: 20px 0;">
+                <ul>
+                    <li><strong>Writers:</strong> Track drafts of books, articles, and manuscripts</li>
+                    <li><strong>Designers:</strong> Manage versions of logos, layouts, and graphics</li>
+                    <li><strong>Students:</strong> Keep track of thesis drafts and research papers</li>
+                    <li><strong>Legal Teams:</strong> Version control for contracts and legal documents</li>
+                    <li><strong>Anyone:</strong> Who works on files that change over time and needs to collaborate</li>
+                </ul>
+            </div>
+
+            <h3>Benefits for Everyone:</h3>
+            <ul>
+                <li>Never lose work again</li>
+                <li>See exactly what changed between versions</li>
+                <li>Collaborate without overwriting each other's work</li>
+                <li>Go back to any previous version instantly</li>
+                <li>Work on different ideas simultaneously</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Why Git Exists - The Problem It Solves -->
+        <div class="slide">
+            <h2>Why Git Exists - The Problem It Solves</h2>
+            <p>Before Git and version control systems, developers faced many challenges when working on code projects.</p>
+            
+            <h3>Problems Before Git:</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>File Chaos</h4>
+                    <p>Developers would save files like:<br>
+                    <code>project.js</code><br>
+                    <code>project_v2.js</code><br>
+                    <code>project_final.js</code><br>
+                    <code>project_final_FINAL.js</code></p>
+                </div>
+                <div class="feature-card">
+                    <h4>Lost Work</h4>
+                    <p>No backup meant one mistake could delete weeks of work. Hard drives crashed, files got corrupted, and entire projects disappeared.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Collaboration Nightmare</h4>
+                    <p>Multiple people working on the same project meant emailing files back and forth, overwriting each other's changes, and losing work.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>No Change History</h4>
+                    <p>Impossible to see what changed, when it changed, or who changed it. Debugging was like detective work without clues.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Fear of Experimentation</h4>
+                    <p>Trying new features meant risking the entire project. Developers were afraid to experiment or refactor code.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Deployment Disasters</h4>
+                    <p>No way to know exactly which version was running in production, making rollbacks and updates extremely risky.</p>
+                </div>
+            </div>
+
+            <h3>How Git Solves These Problems:</h3>
+            <ul>
+                <li><strong>Complete History:</strong> Every change is tracked with who, what, when, and why</li>
+                <li><strong>Safe Experimentation:</strong> Create branches to try new ideas without breaking working code</li>
+                <li><strong>True Collaboration:</strong> Multiple people can work simultaneously without conflicts</li>
+                <li><strong>Distributed Backups:</strong> Every clone is a complete backup of the entire project history</li>
+                <li><strong>Easy Rollbacks:</strong> Go back to any previous version instantly</li>
+                <li><strong>Merge Intelligence:</strong> Automatically combine changes from different contributors</li>
+            </ul>
+
+            <h3>Real-World Example:</h3>
+            <div style="background: #f1f5f9; padding: 25px; border-radius: 10px; margin: 20px 0;">
+                <p><strong>Before Git:</strong> "The website is broken! Who changed the login page? When? We need to go back to yesterday's version, but which file is that?"</p>
+                <p><strong>With Git:</strong> <code>git log --oneline</code> shows exactly what changed, <code>git revert abc123</code> undoes the problematic change in seconds.</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Git Hosting Platforms - Where Code Lives -->
+        <div class="slide">
+            <h2>Git Hosting Platforms - Where Code Lives</h2>
+            <p>While Git works on your computer, companies need a central place to store, share, and collaborate on code. Think of these as "cloud storage for code projects."</p>
+            
+            <h3>Major Git Hosting Platforms:</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>GitHub</h4>
+                    <p><strong>The most popular platform</strong><br>
+                    • Owned by Microsoft<br>
+                    • 100+ million developers<br>
+                    • Home to most open source projects<br>
+                    • Free for public repositories</p>
+                    <p><strong>Major Projects:</strong><br>
+                    • <a href="https://github.com/microsoft/vscode" target="_blank">VS Code</a> - World's most popular code editor<br>
+                    • <a href="https://github.com/facebook/react" target="_blank">React</a> - Facebook's UI library<br>
+                    • <a href="https://github.com/tensorflow/tensorflow" target="_blank">TensorFlow</a> - Google's ML framework<br>
+                    • <a href="https://github.com/torvalds/linux" target="_blank">Linux Kernel</a> - Operating system kernel</p>
+                </div>
+                <div class="feature-card">
+                    <h4>GitLab</h4>
+                    <p><strong>The complete DevOps platform</strong><br>
+                    • Built-in CI/CD pipelines<br>
+                    • Issue tracking and project management<br>
+                    • Can be self-hosted<br>
+                    • Popular in enterprises</p>
+                    <p><strong>Major Projects:</strong><br>
+                    • <a href="https://gitlab.com/gitlab-org/gitlab" target="_blank">GitLab itself</a> - Platform's own source code<br>
+                    • <a href="https://gitlab.com/fdroid/fdroidclient" target="_blank">F-Droid</a> - Android app store<br>
+                    • <a href="https://gitlab.gnome.org/GNOME" target="_blank">GNOME</a> - Linux desktop environment<br>
+                    • <a href="https://gitlab.com/inkscape/inkscape" target="_blank">Inkscape</a> - Vector graphics editor</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Bitbucket</h4>
+                    <p><strong>Atlassian's Git solution</strong><br>
+                    • Integrates with Jira and Confluence<br>
+                    • Free for small teams<br>
+                    • Good for existing Atlassian users<br>
+                    • Strong enterprise features</p>
+                    <p><strong>Major Projects:</strong><br>
+                    • <a href="https://bitbucket.org/atlassian/atlassian-frontend" target="_blank">Atlassian Frontend</a> - UI components<br>
+                    • <a href="https://bitbucket.org/pypy/pypy" target="_blank">PyPy</a> - Python implementation<br>
+                    • <a href="https://bitbucket.org/django/django" target="_blank">Django</a> - Python web framework<br>
+                    • Many enterprise projects (private repositories)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Azure DevOps</h4>
+                    <p><strong>Microsoft's enterprise platform</strong><br>
+                    • Integrated with Microsoft ecosystem<br>
+                    • Advanced project management<br>
+                    • Enterprise security features<br>
+                    • Boards, repos, and pipelines</p>
+                    <p><strong>Major Projects:</strong><br>
+                    • <a href="https://dev.azure.com/dnceng/public" target="_blank">.NET Core</a> - Microsoft's development platform<br>
+                    • <a href="https://dev.azure.com/mseng/VSOnline" target="_blank">Visual Studio Online</a> - Cloud development<br>
+                    • Many Microsoft internal projects<br>
+                    • Enterprise and government projects</p>
+                </div>
+            </div>
+
+            <h3>Why Big Companies Use These Platforms:</h3>
+            <div style="background: #f1f5f9; padding: 25px; border-radius: 10px; margin: 20px 0;">
+                <h4>Business Benefits:</h4>
+                <ul>
+                    <li><strong>Collaboration at Scale:</strong> Thousands of developers can work together</li>
+                    <li><strong>Code Security:</strong> Private repositories with access controls</li>
+                    <li><strong>Backup & Reliability:</strong> Professional-grade infrastructure</li>
+                    <li><strong>Integration:</strong> Connect with other business tools</li>
+                    <li><strong>Compliance:</strong> Meet industry regulations and standards</li>
+                    <li><strong>Analytics:</strong> Track productivity and code quality</li>
+                </ul>
+            </div>
+
+            <h3>Real Company Examples:</h3>
+            <ul>
+                <li><strong>Microsoft:</strong> Uses GitHub for Windows, Visual Studio Code, and more</li>
+                <li><strong>Google:</strong> Uses internal Git systems plus GitHub for open source</li>
+                <li><strong>Netflix:</strong> Heavily uses GitHub for their streaming infrastructure</li>
+                <li><strong>Airbnb:</strong> Uses GitHub for web and mobile app development</li>
+                <li><strong>Tesla:</strong> Uses GitLab for their software development</li>
+            </ul>
+
+            <h3>Cost vs. Value:</h3>
+            <p>Companies pay for these platforms because the cost of losing code, having security breaches, or developer downtime far exceeds the monthly subscription fees.</p>
+        </div>
+
+        <!-- Slide 5: What is Git? -->
+        <div class="slide">
+            <h2>What is Git?</h2>
+            <p><span class="highlight">Git</span> is a distributed version control system that tracks changes in your code over time.</p>
+            
+            <h3>Why Use Git?</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Track Changes</h4>
+                    <p>Keep a complete history of all changes to your files</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Collaboration</h4>
+                    <p>Multiple developers can work on the same project simultaneously</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Backup & Recovery</h4>
+                    <p>Never lose your work with distributed backups</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Branching</h4>
+                    <p>Work on different features in parallel without conflicts</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Deployment</h4>
+                    <p>Automate deployments and manage releases across environments</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Version Management</h4>
+                    <p>Tag releases and easily rollback to previous versions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Git for Different Tech Roles -->
+        <div class="slide">
+            <h2>Git Across Tech Roles - Why Everyone Needs It</h2>
+            <p>Git isn't just for developers - it's become essential across all technology roles. Here's how different professionals use Git in their daily work.</p>
+            
+            <h3>Development Roles:</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Web Developers</h4>
+                    <p><strong>Essential for:</strong><br>
+                    • Managing HTML, CSS, JavaScript code<br>
+                    • Deploying websites and web applications<br>
+                    • Collaborating on frontend/backend code<br>
+                    • Version control for responsive designs<br>
+                    • Managing dependencies and frameworks</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Mobile Developers</h4>
+                    <p><strong>Essential for:</strong><br>
+                    • iOS/Android app source code management<br>
+                    • Cross-platform development (React Native, Flutter)<br>
+                    • App store release management<br>
+                    • Managing different app versions<br>
+                    • Collaborative mobile team development</p>
+                </div>
+                <div class="feature-card">
+                    <h4>AI Engineers</h4>
+                    <p><strong>Essential for:</strong><br>
+                    • Machine learning model versioning<br>
+                    • Jupyter notebook collaboration<br>
+                    • Dataset and experiment tracking<br>
+                    • ML pipeline code management<br>
+                    • Sharing research and model implementations</p>
+                </div>
+            </div>
+
+            <h3>Quality & Management Roles:</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Quality Assurance (QA)</h4>
+                    <p><strong>Essential for:</strong><br>
+                    • Test automation script management<br>
+                    • Test case version control<br>
+                    • Bug reproduction and tracking<br>
+                    • Coordinating testing across different code versions<br>
+                    • Maintaining test data and configurations</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Project Managers</h4>
+                    <p><strong>Essential for:</strong><br>
+                    • Understanding development progress<br>
+                    • Tracking feature releases and milestones<br>
+                    • Managing project documentation<br>
+                    • Coordinating between development teams<br>
+                    • Release planning and deployment oversight</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Data Scientists</h4>
+                    <p><strong>Essential for:</strong><br>
+                    • Data analysis script versioning<br>
+                    • Collaborative research projects<br>
+                    • Experiment reproducibility<br>
+                    • Model and algorithm sharing<br>
+                    • Managing data processing pipelines</p>
+                </div>
+            </div>
+
+            <h3>Security & Specialized Roles:</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Cyber Security</h4>
+                    <p><strong>Essential for:</strong><br>
+                    • Security tool and script development<br>
+                    • Vulnerability research collaboration<br>
+                    • Security policy documentation<br>
+                    • Incident response playbook management<br>
+                    • Penetration testing tool maintenance</p>
+                </div>
+            </div>
+
+            <h3>Industry Examples:</h3>
+            <div style="background: #f1f5f9; padding: 25px; border-radius: 10px; margin: 20px 0;">
+                <ul>
+                    <li><strong>Netflix:</strong> QA teams use Git to manage automated testing for their streaming platform</li>
+                    <li><strong>Spotify:</strong> Data scientists use Git to share music recommendation algorithms</li>
+                    <li><strong>Tesla:</strong> Project managers track software updates for vehicle systems through Git</li>
+                    <li><strong>OpenAI:</strong> AI engineers use Git to collaborate on language model development</li>
+                    <li><strong>Airbnb:</strong> Security teams manage infrastructure-as-code and security policies in Git</li>
+                </ul>
+            </div>
+
+            <h3>Why Git Skills Matter for Career Growth:</h3>
+            <ul>
+                <li><strong>Universal Language:</strong> Git knowledge helps you communicate with any technical team</li>
+                <li><strong>Career Mobility:</strong> Essential skill for moving between tech roles</li>
+                <li><strong>Remote Collaboration:</strong> Critical for distributed and remote work</li>
+                <li><strong>Industry Standard:</strong> Expected skill in most technology job descriptions</li>
+                <li><strong>Process Understanding:</strong> Helps understand how modern software is built and delivered</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7: Git Installation -->
+        <div class="slide">
+            <h2>Installing Git</h2>
+            <p>Before you can use Git, you need to install it on your system. Git is available for all major operating systems.</p>
+            
+            <h3>Installation by Operating System:</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Windows</h4>
+                    <p>Download Git for Windows from <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a></p>
+                    <p>Or use package managers:</p>
+                    <div class="code-block" style="margin: 15px 0; font-size: 1em;">
+winget install --id Git.Git
+# or
+choco install git
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h4>macOS</h4>
+                    <p>Git comes pre-installed with Xcode Command Line Tools, or install via:</p>
+                    <div class="code-block" style="margin: 15px 0; font-size: 1em;">
+# Using Homebrew (recommended)
+brew install git
+
+# Using MacPorts
+sudo port install git
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h4>Linux</h4>
+                    <p>Install using your distribution's package manager:</p>
+                    <div class="code-block" style="margin: 15px 0; font-size: 1em;">
+# Ubuntu/Debian
+sudo apt update && sudo apt install git
+
+# CentOS/RHEL/Fedora
+sudo dnf install git
+# or older systems
+sudo yum install git
+
+# Arch Linux
+sudo pacman -S git
+                    </div>
+                </div>
+            </div>
+
+            <h3>📺 Video Guide: Installing Git</h3>
+            <div style="text-align: center; margin: 30px 0;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/t2-l3WvWvqg?si=A5JlTom7h_dAhxuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="max-width: 100%; border-radius: 8px;"></iframe>
+            </div>
+
+            <h3>Verify Installation:</h3>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Terminal</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo1">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive1">Try It</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-body" id="demo1">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git --version</span>
+                            <div class="terminal-output" style="display: none;">git version 2.41.0</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git config --list</span>
+                            <div class="terminal-output" style="display: none;">user.name=Your Name
+user.email=your@email.com
+core.editor=code --wait
+init.defaultbranch=main</div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive1" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="interactive-demo">
+                <div class="demo-title">💡 Click on the commands above to see their output!</div>
+            </div>
+
+            <h3>First-Time Setup (Required):</h3>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Git Configuration</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo2">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive2">Try It</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-body" id="demo2">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git config --global user.name "Your Full Name"</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git config --global user.email "your.email@example.com"</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git config --global init.defaultBranch main</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive2" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Optional but Recommended:</h3>
+            <ul>
+                <li><strong>Text Editor:</strong> <code>git config --global core.editor "code --wait"</code> (for VS Code)</li>
+                <li><strong>Line Endings:</strong> <code>git config --global core.autocrlf true</code> (Windows) or <code>false</code> (Mac/Linux)</li>
+                <li><strong>Credential Helper:</strong> <code>git config --global credential.helper store</code></li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Basic Git Workflow -->
+        <div class="slide">
+            <h2>Basic Git Workflow</h2>
+            <div class="git-workflow">
+                <div class="workflow-step">
+                    <h4>Working Directory</h4>
+                    <p>Your local files</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <h4>Staging Area</h4>
+                    <p>Prepared changes</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <h4>Repository</h4>
+                    <p>Committed changes</p>
+                </div>
+            </div>
+            
+            <h3>The Three States:</h3>
+            <ul>
+                <li><strong>Modified:</strong> Files have been changed but not staged</li>
+                <li><strong>Staged:</strong> Files are marked for the next commit</li>
+                <li><strong>Committed:</strong> Files are safely stored in the repository</li>
+            </ul>
+        </div>
+
+        <!-- Slide 9: Essential Commands -->
+        <div class="slide">
+            <h2>Essential Git Commands</h2>
+            
+            <h3>Getting Started:</h3>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Initialize Repository</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo3">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive3">Try It</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-body" id="demo3">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git init</span>
+                            <span class="terminal-comment"># Initialize a new repository</span>
+                            <div class="terminal-output" style="display: none;">Initialized empty Git repository in /current/directory/.git/</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git clone &lt;url&gt;</span>
+                            <span class="terminal-comment"># Copy a repository from remote</span>
+                            <div class="terminal-output" style="display: none;">Cloning into 'repository'...
+remote: Enumerating objects: 100, done.
+Receiving objects: 100% (100/100), done.</div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive3" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Basic Operations:</h3>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Daily Git Workflow</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo4">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive4">Try It</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-body" id="demo4">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git status</span>
+                            <span class="terminal-comment"># Check repository status</span>
+                            <div class="terminal-output" style="display: none;">On branch main
+Nothing to commit, working tree clean</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git add .</span>
+                            <span class="terminal-comment"># Stage all changes</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git commit -m "Initial commit"</span>
+                            <span class="terminal-comment"># Commit staged changes</span>
+                            <div class="terminal-output" style="display: none;">[main (root-commit) abc123] Initial commit
+ 3 files changed, 45 insertions(+)
+ create mode 100644 index.html
+ create mode 100644 style.css
+ create mode 100644 script.js</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git log</span>
+                            <span class="terminal-comment"># View commit history</span>
+                            <div class="terminal-output" style="display: none;">commit abc123def456 (HEAD -> main)
+Author: Your Name &lt;your@email.com&gt;
+Date: Thu Oct 10 2025 10:30:00
+
+    Initial commit</div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive4" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="interactive-demo">
+                <div class="demo-title">🎯 Try the Git workflow: Click each command in order to see the typical development process!</div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Branching -->
+        <div class="slide">
+            <h2>Branching & Merging</h2>
+            
+            <p>Branches allow you to work on different features simultaneously without affecting the main codebase.</p>
+            
+            <h3>Branch Commands:</h3>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Git Branching Demo</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo5">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive5">Try It</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-body" id="demo5">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git branch</span>
+                            <span class="terminal-comment"># List all branches</span>
+                            <div class="terminal-output" style="display: none;">* main</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git branch feature/new-feature</span>
+                            <span class="terminal-comment"># Create a new branch</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git checkout feature/new-feature</span>
+                            <span class="terminal-comment"># Switch to a branch</span>
+                            <div class="terminal-output" style="display: none;">Switched to branch 'feature/new-feature'</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git checkout -b feature/login</span>
+                            <span class="terminal-comment"># Create and switch to new branch</span>
+                            <div class="terminal-output" style="display: none;">Switched to a new branch 'feature/login'</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git merge feature/new-feature</span>
+                            <span class="terminal-comment"># Merge branch into current branch</span>
+                            <div class="terminal-output" style="display: none;">Updating abc123..def456
+Fast-forward
+ index.html | 10 ++++++++++
+ 1 file changed, 10 insertions(+)</div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive5" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="interactive-demo">
+                <div class="demo-title">🌿 Explore branching: Click commands to see how Git manages parallel development!</div>
+            </div>
+
+            <h3>Common Branching Strategy:</h3>
+            <ul>
+                <li><strong>main/master:</strong> Production-ready code deployed to live environments</li>
+                <li><strong>develop:</strong> Integration branch for features, deployed to staging</li>
+                <li><strong>feature/*:</strong> Individual feature development</li>
+                <li><strong>release/*:</strong> Prepare releases for deployment</li>
+                <li><strong>hotfix/*:</strong> Quick fixes for production issues</li>
+            </ul>
+        </div>
+
+        <!-- Slide 11: Remote Repositories -->
+        <div class="slide">
+            <h2>Remote Repositories</h2>
+            
+            <p>Remote repositories are versions of your project hosted on the internet or network.</p>
+            
+            <h3>Remote Commands:</h3>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Remote Repository Operations</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo6">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive6">Try It</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-body" id="demo6">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git remote add origin &lt;url&gt;</span>
+                            <span class="terminal-comment"># Add a remote repository</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git push origin main</span>
+                            <span class="terminal-comment"># Upload changes to remote</span>
+                            <div class="terminal-output" style="display: none;">Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+To github.com:username/repository.git
+   abc123..def456  main -> main</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git pull origin main</span>
+                            <span class="terminal-comment"># Download and merge changes</span>
+                            <div class="terminal-output" style="display: none;">From github.com:username/repository
+ * branch            main     -> FETCH_HEAD
+Already up to date.</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git tag v1.0.0</span>
+                            <span class="terminal-comment"># Create a release tag</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive6" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="interactive-demo">
+                <div class="demo-title">🌐 Practice remote operations: See how code travels between local and remote repositories!</div>
+            </div>
+
+            <h3>Popular Git Hosting Services:</h3>
+            <ul>
+                <li><strong>GitHub:</strong> Most popular, great for open source and deployment automation</li>
+                <li><strong>GitLab:</strong> Integrated DevOps platform with built-in CI/CD</li>
+                <li><strong>Bitbucket:</strong> Atlassian's Git solution with deployment pipelines</li>
+                <li><strong>Azure DevOps:</strong> Microsoft's development platform with release management</li>
+            </ul>
+
+            <h3>Git in Deployment Workflows:</h3>
+            <ul>
+                <li><strong>Continuous Integration (CI):</strong> Automatically test code on every commit</li>
+                <li><strong>Continuous Deployment (CD):</strong> Deploy to staging/production from specific branches</li>
+                <li><strong>Release Tags:</strong> Mark stable versions for deployment</li>
+                <li><strong>Environment Branches:</strong> Separate branches for development, staging, and production</li>
+            </ul>
+        </div>
+
+        <!-- Slide 12: Best Practices -->
+        <div class="slide">
+            <h2>Git Best Practices</h2>
+            
+            <h3>Commit Best Practices:</h3>
+            <ul>
+                <li>Write clear, descriptive commit messages</li>
+                <li>Make small, focused commits</li>
+                <li>Use present tense ("Add feature" not "Added feature")</li>
+                <li>Commit related changes together</li>
+            </ul>
+
+            <h3>Branching Best Practices:</h3>
+            <ul>
+                <li>Use descriptive branch names</li>
+                <li>Keep branches short-lived</li>
+                <li>Regularly merge from main branch</li>
+                <li>Delete merged branches</li>
+            </ul>
+
+            <h3>General Tips:</h3>
+            <ul>
+                <li>Use <code>.gitignore</code> to exclude unnecessary files</li>
+                <li>Review changes before committing</li>
+                <li>Pull before pushing to avoid conflicts</li>
+                <li>Use meaningful branch names like <code>feature/user-authentication</code></li>
+                <li>Tag releases for easy deployment tracking</li>
+                <li>Keep sensitive deployment keys out of version control</li>
+            </ul>
+        </div>
+
+        <!-- Slide 13: Troubleshooting -->
+        <div class="slide">
+            <h2>Common Issues & Solutions</h2>
+            
+            <h3>Undo Changes:</h3>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Git Recovery Commands</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo7">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive7">Try It</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-body" id="demo7">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git checkout -- index.html</span>
+                            <span class="terminal-comment"># Discard changes in working directory</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git reset HEAD index.html</span>
+                            <span class="terminal-comment"># Unstage a file</span>
+                            <div class="terminal-output" style="display: none;">Unstaged changes after reset:
+M	index.html</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git revert abc123</span>
+                            <span class="terminal-comment"># Create new commit that undoes changes</span>
+                            <div class="terminal-output" style="display: none;">[main def456] Revert "problematic commit"
+ 1 file changed, 5 deletions(-)</div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive7" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="interactive-demo">
+                <div class="demo-title">🔧 Practice safe recovery: Learn how to undo mistakes without losing work!</div>
+            </div>
+
+            <h3>Fix Common Mistakes:</h3>
+            <ul>
+                <li><strong>Wrong commit message:</strong> <code>git commit --amend -m "New message"</code></li>
+                <li><strong>Forgot to add files:</strong> <code>git add .</code> then <code>git commit --amend</code></li>
+                <li><strong>Merge conflicts:</strong> Edit files, add them, then commit</li>
+                <li><strong>Lost commits:</strong> Use <code>git reflog</code> to find them</li>
+            </ul>
+        </div>
+
+        <!-- Slide 14: Next Steps -->
+        <div class="slide">
+            <h2>Next Steps</h2>
+            
+            <h3>Practice Projects:</h3>
+            <ul>
+                <li>Create a personal portfolio repository</li>
+                <li>Contribute to open source projects</li>
+                <li>Practice branching with a sample project</li>
+                <li>Set up a CI/CD pipeline with GitHub Actions</li>
+            </ul>
+
+            <h3>Advanced Topics to Explore:</h3>
+            <ul>
+                <li><strong>Git Hooks:</strong> Automate tasks with repository events</li>
+                <li><strong>Rebasing:</strong> Clean up commit history</li>
+                <li><strong>Submodules:</strong> Include other repositories</li>
+                <li><strong>Git Flow:</strong> Advanced branching strategies</li>
+            </ul>
+
+            <h3>Resources:</h3>
+            <ul>
+                <li><a href="https://git-scm.com/doc" target="_blank">Official Git Documentation</a></li>
+                <li><a href="https://learngitbranching.js.org/" target="_blank">Interactive Git Tutorial</a></li>
+                <li><a href="https://www.atlassian.com/git/tutorials" target="_blank">Atlassian Git Tutorials</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">9</span>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prev-btn" onclick="previousSlide()">← Previous</button>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

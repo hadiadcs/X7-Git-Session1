@@ -1,0 +1,472 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #333;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 20px 0;
+    min-height: 100vh;
+}
+
+.presentation-container {
+    width: 100%;
+    max-width: 95vw;
+    margin: 0 auto;
+    padding: 0 2.5vw;
+}
+
+.slide {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 60px 80px;
+    margin-bottom: 60px;
+    min-height: 85vh;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-left: 5px solid #2563eb;
+    animation: slideIn 0.5s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.slide.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #1e40af;
+    font-size: 3em;
+    margin-bottom: 40px;
+    text-align: center;
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 20px;
+}
+
+h2 {
+    color: #1e3a8a;
+    font-size: 2.5em;
+    margin-bottom: 35px;
+    border-left: 5px solid #dc2626;
+    padding-left: 25px;
+}
+
+h3 {
+    color: #1d4ed8;
+    font-size: 1.8em;
+    margin: 30px 0 20px 0;
+}
+
+p, li {
+    font-size: 1.4em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+ul {
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+.code-block {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 30px;
+    border-radius: 12px;
+    font-family: 'Courier New', monospace;
+    margin: 30px 0;
+    font-size: 1.3em;
+    overflow-x: auto;
+    border-left: 4px solid #2563eb;
+}
+
+.highlight {
+    background: #dc2626;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.navigation {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.nav-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+}
+
+.nav-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
+}
+
+.nav-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.slide-counter {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: #1e40af;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.git-workflow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    padding: 30px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.workflow-step {
+    text-align: center;
+    flex: 1;
+}
+
+.workflow-step h4 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.workflow-step p {
+    font-size: 1.2em;
+}
+
+.workflow-arrow {
+    font-size: 2.5em;
+    color: #2563eb;
+    margin: 0 15px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.feature-card {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 4px solid #dc2626;
+    border: 1px solid #e2e8f0;
+}
+
+.feature-card h4 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #1e40af;
+}
+
+.feature-card p {
+    font-size: 1.2em;
+}
+
+.intro-icon {
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2563eb;
+}
+
+/* Interactive Terminal Styles */
+.terminal {
+    background: #1a1a1a;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #333;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-button.close { background: #ff5f56; }
+.terminal-button.minimize { background: #ffbd2e; }
+.terminal-button.maximize { background: #27ca3f; }
+
+.terminal-title {
+    color: #ccc;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+.terminal-tabs {
+    background: #2a2a2a;
+    display: flex;
+    border-bottom: 1px solid #444;
+}
+
+.terminal-tab {
+    padding: 8px 16px;
+    background: #2a2a2a;
+    color: #888;
+    cursor: pointer;
+    border-right: 1px solid #444;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.terminal-tab.active {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.terminal-tab:hover:not(.active) {
+    background: #333;
+    color: #ccc;
+}
+
+.terminal-content {
+    display: none;
+}
+
+.terminal-content.active {
+    display: block;
+}
+
+.terminal-body {
+    padding: 20px;
+    background: #1a1a1a;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 200px;
+}
+
+.terminal-line {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.terminal-prompt {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.terminal-command {
+    color: #FFF;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.terminal-command:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.terminal-output {
+    color: #E0E0E0;
+    margin-left: 20px;
+    margin-top: 5px;
+    white-space: pre-line;
+}
+
+.terminal-comment {
+    color: #888;
+    font-style: italic;
+}
+
+.interactive-terminal {
+    padding: 20px;
+    background: #1a1a1a;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 300px;
+    overflow-y: auto;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    flex: 1;
+    outline: none;
+    padding: 0;
+    margin-left: 8px;
+}
+
+.terminal-history {
+    color: #E0E0E0;
+    margin-bottom: 10px;
+}
+
+.terminal-error {
+    color: #ff6b6b;
+}
+
+/* Custom Terminal Styles */
+.custom-terminal {
+    background: #1a1a1a;
+    color: #fff;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
+}
+
+.terminal-output-area {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #1a1a1a;
+}
+
+.custom-terminal .terminal-input-line {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: #1a1a1a;
+    border-top: 1px solid #333;
+    margin-top: 0;
+}
+
+.custom-terminal .terminal-prompt {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.custom-terminal .terminal-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    outline: none;
+    flex: 1;
+    margin-left: 0;
+}
+
+.custom-terminal .terminal-input::placeholder {
+    color: #666;
+}
+
+.terminal-output-line {
+    margin-bottom: 8px;
+}
+
+.terminal-command-line {
+    color: #4CAF50;
+    margin-bottom: 5px;
+}
+
+.terminal-result {
+    color: #e2e8f0;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    white-space: pre-line;
+}
+
+.terminal-success {
+    color: #51cf66;
+}
+
+.interactive-demo {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border-left: 4px solid #2563eb;
+}
+
+.demo-title {
+    font-weight: bold;
+    color: #1e40af;
+    margin-bottom: 15px;
+}
+
+.try-button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.try-button:hover {
+    background: #1d4ed8;
+}
