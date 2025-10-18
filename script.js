@@ -1,6 +1,152 @@
+// Student information management
+function updateDisplayFromEdit() {
+    const name = document.getElementById('student-name-edit').value.trim();
+    const university = document.getElementById('student-university-edit').value.trim();
+    const linkedin = document.getElementById('student-linkedin-edit').value.trim();
+    
+    document.getElementById('student-name-display').textContent = name || '[Your Name Here]';
+    document.getElementById('student-university-display').textContent = university || '[Your University Here]';
+    document.getElementById('student-linkedin-display').textContent = linkedin || '[Your LinkedIn Profile]';
+}
+
+function updateEditFromDisplay() {
+    const nameDisplay = document.getElementById('student-name-display').textContent;
+    const universityDisplay = document.getElementById('student-university-display').textContent;
+    const linkedinDisplay = document.getElementById('student-linkedin-display').textContent;
+    
+    document.getElementById('student-name-edit').value = nameDisplay.includes('[') ? '' : nameDisplay;
+    document.getElementById('student-university-edit').value = universityDisplay.includes('[') ? '' : universityDisplay;
+    document.getElementById('student-linkedin-edit').value = linkedinDisplay.includes('[') ? '' : linkedinDisplay;
+}
+
+function editStudentInfo() {
+    updateEditFromDisplay();
+    document.getElementById('edit-form').style.display = 'block';
+    document.getElementById('edit-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function cancelEdit() {
+    document.getElementById('edit-form').style.display = 'none';
+}
+
+function proceedToLearning() {
+    const name = document.getElementById('student-name-display').textContent;
+    const university = document.getElementById('student-university-display').textContent;
+    
+    if (name.includes('[') || university.includes('[')) {
+        alert('Please fill in your name and university information first by clicking "Edit Information".');
+        editStudentInfo();
+        return;
+    }
+    
+    // Show welcome message or proceed to next slide
+    const welcomeDiv = document.getElementById('welcome-message');
+    if (welcomeDiv) {
+        welcomeDiv.style.display = 'block';
+        welcomeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    
+    // Scroll to next slide after a brief delay
+    setTimeout(() => {
+        const slides = document.querySelectorAll('.slide');
+        if (slides.length > 1) {
+            slides[1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 3000);
+}
+
+function saveStudentInfo() {
+    const name = document.getElementById('student-name-edit').value.trim();
+    const university = document.getElementById('student-university-edit').value.trim();
+    const linkedin = document.getElementById('student-linkedin-edit').value.trim();
+    
+    if (!name) {
+        alert('Please enter your name before saving.');
+        document.getElementById('student-name-edit').focus();
+        return;
+    }
+    
+    if (!university) {
+        alert('Please enter your university before saving.');
+        document.getElementById('student-university-edit').focus();
+        return;
+    }
+    
+    // Update display
+    updateDisplayFromEdit();
+    
+    // Save to localStorage for persistence
+    const studentInfo = {
+        name: name,
+        university: university,
+        linkedin: linkedin,
+        timestamp: new Date().toISOString()
+    };
+    
+    localStorage.setItem('gitCourseStudentInfo', JSON.stringify(studentInfo));
+    
+    // Hide edit form
+    document.getElementById('edit-form').style.display = 'none';
+    
+    // Show welcome message
+    const welcomeDiv = document.getElementById('welcome-message');
+    const messageP = document.getElementById('personalized-message');
+    
+    let message = `Hello ${name}! Welcome to the Git Fundamentals course.`;
+    if (university) {
+        message += ` It's great to have a student from ${university} with us.`;
+    }
+    if (linkedin) {
+        message += ` Feel free to connect with fellow learners on LinkedIn!`;
+    }
+    message += ` Your information has been saved. Ready to start learning Git?`;
+    
+    messageP.textContent = message;
+    welcomeDiv.style.display = 'block';
+    
+    // Scroll to welcome message
+    welcomeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    console.log('Student info saved:', studentInfo);
+}
+
+// Load student info if it exists
+function loadStudentInfo() {
+    const saved = localStorage.getItem('gitCourseStudentInfo');
+    if (saved) {
+        try {
+            const studentInfo = JSON.parse(saved);
+            document.getElementById('student-name-display').textContent = studentInfo.name || '[Your Name Here]';
+            document.getElementById('student-university-display').textContent = studentInfo.university || '[Your University Here]';
+            document.getElementById('student-linkedin-display').textContent = studentInfo.linkedin || '[Your LinkedIn Profile]';
+            
+            if (studentInfo.name && studentInfo.university) {
+                // Show welcome message automatically
+                const welcomeDiv = document.getElementById('welcome-message');
+                const messageP = document.getElementById('personalized-message');
+                
+                if (welcomeDiv && messageP) {
+                    let message = `Welcome back, ${studentInfo.name}!`;
+                    if (studentInfo.university) {
+                        message += ` Ready to continue your Git learning journey?`;
+                    }
+                    
+                    messageP.textContent = message;
+                    welcomeDiv.style.display = 'block';
+                }
+            }
+        } catch (e) {
+            console.log('Error loading student info:', e);
+        }
+    }
+}
+
 // Scrollable presentation with custom terminal
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded - Initializing presentation');
+    
+    // Load any saved student information
+    loadStudentInfo();
     
     // Make all slides visible
     const slides = document.querySelectorAll('.slide');
@@ -705,6 +851,58 @@ In this terminal, type 'help' to see available commands.`,
 
         // Clone commands
         'git clone <url>': 'Cloning into \'repository\'...\nremote: Enumerating objects: 100, done.\nremote: Counting objects: 100% (100/100), done.\nremote: Compressing objects: 100% (65/65), done.\nReceiving objects: 100% (100/100), 15.32 KiB | 1.70 MiB/s, done.\nResolving deltas: 100% (35/35), done.',
+        
+        // Specific repository clone examples
+        'git clone https://github.com/bobflay/GitSession2_2024.git': `Cloning into 'GitSession2_2024'...
+Username for 'https://github.com': your-username
+Password for 'https://your-username@github.com': 
+remote: Enumerating objects: 45, done.
+remote: Counting objects: 100% (45/45), done.
+remote: Compressing objects: 100% (32/32), done.
+remote: Total 45 (delta 8), reused 38 (delta 4), pack-reused 0
+Receiving objects: 100% (45/45), 15.20 KiB | 2.17 MiB/s, done.
+Resolving deltas: 100% (8/8), done.`,
+
+        'git clone git@github.com:bobflay/GitSession2_2024.git': `Cloning into 'GitSession2_2024'...
+remote: Enumerating objects: 45, done.
+remote: Counting objects: 100% (45/45), done.
+remote: Compressing objects: 100% (32/32), done.
+remote: Total 45 (delta 8), reused 38 (delta 4), pack-reused 0
+Receiving objects: 100% (45/45), 15.20 KiB | 3.04 MiB/s, done.
+Resolving deltas: 100% (8/8), done.`,
+
+        'cd GitSession2_2024': '',
+        
+        'ls -la': `total 32
+drwxr-xr-x   7 user  staff   224 Oct 17 12:00 .
+drwxr-xr-x   3 user  staff    96 Oct 17 12:00 ..
+drwxr-xr-x   8 user  staff   256 Oct 17 12:00 .git
+-rw-r--r--   1 user  staff  4521 Oct 17 12:00 README.md
+-rw-r--r--   1 user  staff   125 Oct 17 12:00 aboutme.md
+-rw-r--r--   1 user  staff 45678 Oct 17 12:00 index.html
+-rw-r--r--   1 user  staff 15234 Oct 17 12:00 script.js
+-rw-r--r--   1 user  staff  8765 Oct 17 12:00 styles.css`,
+
+        'git remote -v': `origin	https://github.com/bobflay/GitSession2_2024.git (fetch)
+origin	https://github.com/bobflay/GitSession2_2024.git (push)`,
+
+        // Command comparison examples
+        'git init my-new-project': 'Initialized empty Git repository in /path/to/my-new-project/.git/',
+        'git clone https://github.com/bobflay/X7-Git-Session1.git': `Cloning into 'X7-Git-Session1'...
+remote: Enumerating objects: 42, done.
+remote: Counting objects: 100% (42/42), done.
+remote: Compressing objects: 100% (28/28), done.
+remote: Total 42 (delta 12), reused 35 (delta 8), pack-reused 0
+Receiving objects: 100% (42/42), 25.15 KiB | 3.59 MiB/s, done.
+Resolving deltas: 100% (12/12), done.`,
+        'cd X7-Git-Session1': '',
+        'git pull origin main': `From https://github.com/bobflay/X7-Git-Session1
+ * branch            main       -> FETCH_HEAD
+Already up to date.`,
+        'git log --oneline': `abc1234 Add comprehensive Git presentation
+def5678 Update terminal interactions
+ghi9012 Add SSH setup guide
+jkl3456 Initial commit`,
 
         // Diff commands
         'git diff': 'diff --git a/index.html b/index.html\nindex abc123..def456 100644\n--- a/index.html\n+++ b/index.html\n@@ -1,3 +1,4 @@\n <!DOCTYPE html>\n <html>\n+<head><title>My Site</title></head>\n <body>',
@@ -741,6 +939,32 @@ In this terminal, type 'help' to see available commands.`,
 
         // Other useful commands
         'git reflog': 'abc123 (HEAD -> main) HEAD@{0}: commit: Initial commit\ndef456 HEAD@{1}: commit: Add feature\nghi789 HEAD@{2}: checkout: moving from feature to main',
+        
+        // SSH Setup Commands
+        'ssh-keygen -t ed25519 -C "your-email@example.com"': `Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/user/.ssh/id_ed25519): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/user/.ssh/id_ed25519
+Your public key has been saved in /Users/user/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:abc123def456ghi789 your-email@example.com
+The key's randomart image is:
++--[ED25519 256]--+
+|        .o.      |
+|       . .+      |
+|      . o.+.     |
+|     . =.B .     |
+|    . S X =      |
+|     = B X .     |
+|    . + B o      |
+|     . * +       |
+|      o.=        |
++----[SHA256]-----+`,
+
+        'cat ~/.ssh/id_ed25519.pub': 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIExamplePublicKeyContentHereABCDEF123456 your-email@example.com',
+        
+        'ssh -T git@github.com': `Hi username! You've successfully authenticated, but GitHub does not provide shell access.`,
         'git blame index.html': 'abc123 (Your Name 2025-10-10 10:30:00 +0000 1) <!DOCTYPE html>\ndef456 (Your Name 2025-10-10 11:00:00 +0000 2) <html>\nghi789 (Your Name 2025-10-10 11:30:00 +0000 3) <head>',
         'git shortlog': 'Your Name (3):\n      Initial commit\n      Add new feature\n      Fix bug in login',
 

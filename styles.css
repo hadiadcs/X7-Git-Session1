@@ -470,3 +470,110 @@ li {
 .try-button:hover {
     background: #1d4ed8;
 }
+
+/* About Me Form Styles */
+.about-me-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.about-me-card .info-group {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+    transition: all 0.3s ease;
+}
+
+.about-me-card .info-group:nth-child(1) { animation-delay: 0.1s; }
+.about-me-card .info-group:nth-child(2) { animation-delay: 0.2s; }
+.about-me-card .info-group:nth-child(3) { animation-delay: 0.3s; }
+
+.about-me-card .info-group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-me-form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.about-me-form input::placeholder {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+#edit-form {
+    animation: slideInFromTop 0.4s ease-out;
+}
+
+#welcome-message {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Information display styling */
+.info-group {
+    position: relative;
+    overflow: hidden;
+}
+
+.info-group::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transition: left 0.5s;
+}
+
+.info-group:hover::before {
+    left: 100%;
+}
+
+/* Responsive design for About Me form */
+@media (max-width: 768px) {
+    .about-me-card {
+        padding: 0 10px;
+    }
+    
+    .slide {
+        padding: 40px 20px;
+    }
+    
+    .about-me-card input {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .about-me-card .info-group {
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+    
+    .about-me-card button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
+}

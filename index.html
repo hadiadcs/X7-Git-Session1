@@ -8,26 +8,126 @@
 </head>
 <body>
     <div class="presentation-container">
-        <!-- Slide 1: Introduction -->
+        <!-- Slide 1: About Me -->
         <div class="slide active">
-            <div class="intro-icon">⚡</div>
-            <h1>Git Fundamentals</h1>
+            <div class="intro-icon">👋</div>
+            <h1>About Me</h1>
             <p style="text-align: center; font-size: 1.4em; color: #64748b; margin-bottom: 40px;">
-                Master the Essential Version Control System
+                Let's get to know each other before we start learning Git!
             </p>
-            <div style="text-align: center;">
-                <h3>What You'll Learn:</h3>
-                <ul style="list-style: none; margin-left: 0;">
-                    <li>✓ What version control is (explained for everyone)</li>
-                    <li>✓ Why version control exists and what problems it solves</li>
-                    <li>✓ Git hosting platforms and why companies use them</li>
-                    <li>✓ What Git is and how it works</li>
-                    <li>✓ How Git is essential across all tech roles</li>
-                    <li>✓ How to install and set up Git</li>
-                    <li>✓ Essential Git commands and workflow</li>
-                    <li>✓ Branching, merging, and collaboration</li>
-                    <li>✓ Best practices and troubleshooting</li>
-                </ul>
+            
+            <div class="about-me-card" style="max-width: 600px; margin: 0 auto;">
+                <div class="info-group" style="margin-bottom: 30px; padding: 20px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #3b82f6;">
+                    <label style="display: block; font-size: 1.2em; font-weight: bold; margin-bottom: 10px; color: #1e293b;">
+                        Name:
+                    </label>
+                    <div 
+                        id="student-name-display" 
+                        style="font-size: 1.3em; color: #334155; padding: 10px 0; min-height: 1.5em; font-weight: 500;"
+                    >
+                        [Your Name Here]
+                    </div>
+                </div>
+                
+                <div class="info-group" style="margin-bottom: 30px; padding: 20px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #10b981;">
+                    <label style="display: block; font-size: 1.2em; font-weight: bold; margin-bottom: 10px; color: #1e293b;">
+                        University:
+                    </label>
+                    <div 
+                        id="student-university-display" 
+                        style="font-size: 1.3em; color: #334155; padding: 10px 0; min-height: 1.5em; font-weight: 500;"
+                    >
+                        [Your University Here]
+                    </div>
+                </div>
+                
+                <div class="info-group" style="margin-bottom: 30px; padding: 20px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #8b5cf6;">
+                    <label style="display: block; font-size: 1.2em; font-weight: bold; margin-bottom: 10px; color: #1e293b;">
+                        LinkedIn Account:
+                    </label>
+                    <div 
+                        id="student-linkedin-display" 
+                        style="font-size: 1.3em; color: #334155; padding: 10px 0; min-height: 1.5em; font-weight: 500;"
+                    >
+                        [Your LinkedIn Profile]
+                    </div>
+                </div>
+                
+                <!-- Edit Form (initially hidden) -->
+                <div id="edit-form" style="display: none; margin-top: 40px; padding: 30px; background: #ffffff; border-radius: 12px; border: 2px solid #e2e8f0;">
+                    <h3 style="text-align: center; margin-bottom: 30px; color: #1e293b;">Edit Your Information</h3>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-size: 1.1em; font-weight: bold; margin-bottom: 8px; color: #1e293b;">Name:</label>
+                        <input 
+                            type="text" 
+                            id="student-name-edit" 
+                            placeholder="Enter your full name..." 
+                            style="width: 100%; padding: 12px; font-size: 1em; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box;"
+                        >
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-size: 1.1em; font-weight: bold; margin-bottom: 8px; color: #1e293b;">University:</label>
+                        <input 
+                            type="text" 
+                            id="student-university-edit" 
+                            placeholder="Enter your university..." 
+                            style="width: 100%; padding: 12px; font-size: 1em; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box;"
+                        >
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <label style="display: block; font-size: 1.1em; font-weight: bold; margin-bottom: 8px; color: #1e293b;">LinkedIn Account:</label>
+                        <input 
+                            type="url" 
+                            id="student-linkedin-edit" 
+                            placeholder="https://linkedin.com/in/your-profile" 
+                            style="width: 100%; padding: 12px; font-size: 1em; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box;"
+                        >
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button 
+                            onclick="saveStudentInfo()" 
+                            style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 12px 25px; font-size: 1em; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; margin-right: 10px;"
+                        >
+                            💾 Save Changes
+                        </button>
+                        
+                        <button 
+                            onclick="cancelEdit()" 
+                            style="background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); color: white; padding: 12px 25px; font-size: 1em; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;"
+                        >
+                            ❌ Cancel
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="welcome-message" style="margin-top: 30px; padding: 20px; background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 8px; display: none;">
+                    <h3 style="color: #0369a1; margin-bottom: 10px;">Welcome!</h3>
+                    <p id="personalized-message" style="color: #075985; margin: 0;"></p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; padding: 25px; background: #f1f5f9; border-radius: 10px;">
+                <h3 style="color: #1e293b; margin-bottom: 15px;">What You'll Learn Today:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; text-align: left;">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li style="margin-bottom: 8px;">✓ What version control is (explained for everyone)</li>
+                        <li style="margin-bottom: 8px;">✓ Why version control exists and what problems it solves</li>
+                        <li style="margin-bottom: 8px;">✓ Git hosting platforms and why companies use them</li>
+                        <li style="margin-bottom: 8px;">✓ What Git is and how it works</li>
+                        <li style="margin-bottom: 8px;">✓ How Git is essential across all tech roles</li>
+                    </ul>
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li style="margin-bottom: 8px;">✓ How to install and set up Git</li>
+                        <li style="margin-bottom: 8px;">✓ Essential Git commands and workflow</li>
+                        <li style="margin-bottom: 8px;">✓ Branching, merging, and collaboration</li>
+                        <li style="margin-bottom: 8px;">✓ Best practices and troubleshooting</li>
+                        <li style="margin-bottom: 8px;">✓ Interactive hands-on practice</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -538,13 +638,62 @@ init.defaultbranch=main</div>
         <div class="slide">
             <h2>Essential Git Commands</h2>
             
-            <h3>Getting Started:</h3>
+            <h3>What is Git Clone?</h3>
+            <p>Git clone creates a complete copy of a remote repository on your local machine. It downloads the entire project history, all branches, and sets up a connection to the original repository.</p>
+            
+            <div style="background: #f1f5f9; padding: 25px; border-radius: 10px; margin: 20px 0;">
+                <h4>🎯 When to Use Clone:</h4>
+                <ul>
+                    <li><strong>Starting with an existing project:</strong> Get a complete copy to work on</li>
+                    <li><strong>Contributing to open source:</strong> Download projects to contribute</li>
+                    <li><strong>Learning from examples:</strong> Study how other projects are structured</li>
+                    <li><strong>Team collaboration:</strong> Get the latest version of your team's project</li>
+                    <li><strong>Backup and deployment:</strong> Create copies for different environments</li>
+                </ul>
+            </div>
+
+            <h3>Cloning Methods - HTTPS vs SSH:</h3>
+            <div class="feature-grid" style="margin-bottom: 30px;">
+                <div class="feature-card">
+                    <h4>🔒 HTTPS Cloning (Username/Password)</h4>
+                    <p><strong>Pros:</strong></p>
+                    <ul style="font-size: 0.9em;">
+                        <li>Works everywhere (no firewall issues)</li>
+                        <li>Easy to set up</li>
+                        <li>Good for beginners</li>
+                    </ul>
+                    <p><strong>Cons:</strong></p>
+                    <ul style="font-size: 0.9em;">
+                        <li>Need to enter credentials often</li>
+                        <li>Less secure for automation</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>🔑 SSH Cloning (Public/Private Keys)</h4>
+                    <p><strong>Pros:</strong></p>
+                    <ul style="font-size: 0.9em;">
+                        <li>No password prompts</li>
+                        <li>More secure</li>
+                        <li>Better for automation</li>
+                        <li>Preferred by professionals</li>
+                    </ul>
+                    <p><strong>Cons:</strong></p>
+                    <ul style="font-size: 0.9em;">
+                        <li>Initial setup required</li>
+                        <li>May be blocked by some firewalls</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Hands-On: Clone a Real Repository</h3>
+            <p>Let's practice cloning with a real example repository: <code>https://github.com/bobflay/GitSession2_2024</code></p>
+            
             <div class="terminal">
                 <div class="terminal-header">
                     <div class="terminal-button close"></div>
                     <div class="terminal-button minimize"></div>
                     <div class="terminal-button maximize"></div>
-                    <div class="terminal-title">Initialize Repository</div>
+                    <div class="terminal-title">Git Clone Examples</div>
                 </div>
                 <div class="terminal-tabs">
                     <div class="terminal-tab active" data-tab="demo3">Demo</div>
@@ -554,17 +703,53 @@ init.defaultbranch=main</div>
                     <div class="terminal-body" id="demo3">
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git init</span>
-                            <span class="terminal-comment"># Initialize a new repository</span>
-                            <div class="terminal-output" style="display: none;">Initialized empty Git repository in /current/directory/.git/</div>
+                            <span class="terminal-command">git clone https://github.com/bobflay/GitSession2_2024.git</span>
+                            <span class="terminal-comment"># Clone using HTTPS (will prompt for username/password)</span>
+                            <div class="terminal-output" style="display: none;">Cloning into 'GitSession2_2024'...
+Username for 'https://github.com': your-username
+Password for 'https://your-username@github.com': 
+remote: Enumerating objects: 45, done.
+remote: Counting objects: 100% (45/45), done.
+remote: Compressing objects: 100% (32/32), done.
+remote: Total 45 (delta 8), reused 38 (delta 4), pack-reused 0
+Receiving objects: 100% (45/45), 15.20 KiB | 2.17 MiB/s, done.
+Resolving deltas: 100% (8/8), done.</div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git clone &lt;url&gt;</span>
-                            <span class="terminal-comment"># Copy a repository from remote</span>
-                            <div class="terminal-output" style="display: none;">Cloning into 'repository'...
-remote: Enumerating objects: 100, done.
-Receiving objects: 100% (100/100), done.</div>
+                            <span class="terminal-command">git clone git@github.com:bobflay/GitSession2_2024.git</span>
+                            <span class="terminal-comment"># Clone using SSH (no password prompt if keys are set up)</span>
+                            <div class="terminal-output" style="display: none;">Cloning into 'GitSession2_2024'...
+remote: Enumerating objects: 45, done.
+remote: Counting objects: 100% (45/45), done.
+remote: Compressing objects: 100% (32/32), done.
+remote: Total 45 (delta 8), reused 38 (delta 4), pack-reused 0
+Receiving objects: 100% (45/45), 15.20 KiB | 3.04 MiB/s, done.
+Resolving deltas: 100% (8/8), done.</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">cd GitSession2_2024</span>
+                            <span class="terminal-comment"># Navigate into the cloned repository</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">ls -la</span>
+                            <span class="terminal-comment"># List all files including hidden .git folder</span>
+                            <div class="terminal-output" style="display: none;">total 24
+drwxr-xr-x  4 user  staff   128 Oct 17 10:30 .
+drwxr-xr-x  5 user  staff   160 Oct 17 10:30 ..
+drwxr-xr-x  8 user  staff   256 Oct 17 10:30 .git
+-rw-r--r--  1 user  staff  1024 Oct 17 10:30 README.md
+-rw-r--r--  1 user  staff   512 Oct 17 10:30 index.html</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">git remote -v</span>
+                            <span class="terminal-comment"># Check the remote repository connection</span>
+                            <div class="terminal-output" style="display: none;">origin	https://github.com/bobflay/GitSession2_2024.git (fetch)
+origin	https://github.com/bobflay/GitSession2_2024.git (push)</div>
                         </div>
                     </div>
                     <div class="interactive-terminal" id="interactive3" style="display: none;">
@@ -578,6 +763,257 @@ Receiving objects: 100% (100/100), done.</div>
                     </div>
                 </div>
             </div>
+            <div class="interactive-demo">
+                <div class="demo-title">🔄 Practice cloning: Try the commands above to see how Git downloads repositories!</div>
+            </div>
+
+            <h3>⚠️ Common Beginner Mistake: Initializing Git in the Wrong Directory</h3>
+            
+            <div style="background: #fee2e2; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #ef4444;">
+                <h4>🚨 Problem: "I accidentally ran <code>git init</code> in my Desktop/Downloads folder!"</h4>
+                <p>Many beginners accidentally initialize Git in large directories like their entire Desktop, Downloads folder, or home directory. This makes Git track thousands of unrelated files!</p>
+                
+                <h4>📁 What is the .git folder?</h4>
+                <ul style="margin: 15px 0;">
+                    <li><strong>.git folder:</strong> A hidden directory that stores all Git history, branches, and configuration</li>
+                    <li><strong>Created by:</strong> <code>git init</code> or <code>git clone</code></li>
+                    <li><strong>Contains:</strong> All commits, branch information, and Git settings for that directory</li>
+                    <li><strong>Hidden file:</strong> Starts with a dot (.) so it's hidden in most file explorers</li>
+                </ul>
+                
+                <h4>✅ Easy Solution: Remove the .git folder</h4>
+                <div class="terminal" style="margin: 20px 0;">
+                    <div class="terminal-header">
+                        <div class="terminal-button close"></div>
+                        <div class="terminal-button minimize"></div>
+                        <div class="terminal-button maximize"></div>
+                        <div class="terminal-title">Fix Wrong Git Directory</div>
+                    </div>
+                    <div style="background: #1f2937; color: #e5e7eb; padding: 15px; border-radius: 0 0 8px 8px; font-family: 'Courier New', monospace;">
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #22c55e;">$</span>
+                            <span style="color: #fbbf24;">ls -la</span>
+                            <span style="color: #94a3b8;"># Check if .git folder exists (look for .git in the list)</span>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #22c55e;">$</span>
+                            <span style="color: #fbbf24;">rm -rf .git</span>
+                            <span style="color: #94a3b8;"># Remove the .git folder completely</span>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #22c55e;">$</span>
+                            <span style="color: #fbbf24;">ls -la</span>
+                            <span style="color: #94a3b8;"># Verify .git folder is gone</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 15px 0;">
+                    <h4>💡 Prevention Tips:</h4>
+                    <ul>
+                        <li><strong>Create project folders first:</strong> Make a specific folder for your project before running <code>git init</code></li>
+                        <li><strong>Check your location:</strong> Use <code>pwd</code> (print working directory) to see where you are</li>
+                        <li><strong>Use <code>ls</code> command:</strong> List files to make sure you're in the right place</li>
+                        <li><strong>Best practice:</strong> Navigate to your project folder, then run <code>git init</code></li>
+                    </ul>
+                </div>
+                
+                <h4>🔄 Correct Workflow:</h4>
+                <div class="terminal" style="margin: 20px 0;">
+                    <div class="terminal-header">
+                        <div class="terminal-button close"></div>
+                        <div class="terminal-button minimize"></div>
+                        <div class="terminal-button maximize"></div>
+                        <div class="terminal-title">Proper Git Initialization</div>
+                    </div>
+                    <div style="background: #1f2937; color: #e5e7eb; padding: 15px; border-radius: 0 0 8px 8px; font-family: 'Courier New', monospace;">
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #22c55e;">$</span>
+                            <span style="color: #fbbf24;">mkdir my-awesome-project</span>
+                            <span style="color: #94a3b8;"># Create a new project folder</span>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #22c55e;">$</span>
+                            <span style="color: #fbbf24;">cd my-awesome-project</span>
+                            <span style="color: #94a3b8;"># Navigate into the project folder</span>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #22c55e;">$</span>
+                            <span style="color: #fbbf24;">pwd</span>
+                            <span style="color: #94a3b8;"># Confirm you're in the right directory</span>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #22c55e;">$</span>
+                            <span style="color: #fbbf24;">git init</span>
+                            <span style="color: #94a3b8;"># Now safely initialize Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Clone vs. Other Git Commands:</h3>
+            
+            <p>Understanding when to use <code>git clone</code> versus other Git commands is crucial for getting started with any project.</p>
+            
+            <div class="feature-grid" style="margin-bottom: 30px;">
+                <div class="feature-card">
+                    <h4>🆕 git init</h4>
+                    <p><strong>When to use:</strong> Starting a brand new project from scratch</p>
+                    <ul style="font-size: 0.9em;">
+                        <li>Creating your own project</li>
+                        <li>No existing repository</li>
+                        <li>Empty folder or new files</li>
+                        <li>You control everything from start</li>
+                    </ul>
+                    <p><strong>Result:</strong> Empty repository with no history</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📥 git clone</h4>
+                    <p><strong>When to use:</strong> Working with an existing project</p>
+                    <ul style="font-size: 0.9em;">
+                        <li>Joining an existing project</li>
+                        <li>Contributing to open source</li>
+                        <li>Getting a copy to study/modify</li>
+                        <li>Starting from a template</li>
+                    </ul>
+                    <p><strong>Result:</strong> Complete copy with full history</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔄 git pull</h4>
+                    <p><strong>When to use:</strong> Updating an existing local repository</p>
+                    <ul style="font-size: 0.9em;">
+                        <li>You already have the repository</li>
+                        <li>Getting latest changes</li>
+                        <li>Staying synchronized with team</li>
+                        <li>Regular development workflow</li>
+                    </ul>
+                    <p><strong>Result:</strong> Updates your existing copy</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏗️ git fork (GitHub)</h4>
+                    <p><strong>When to use:</strong> Contributing to projects you don't own</p>
+                    <ul style="font-size: 0.9em;">
+                        <li>Open source contributions</li>
+                        <li>No direct write access</li>
+                        <li>Want your own copy to modify</li>
+                        <li>Planning to submit pull requests</li>
+                    </ul>
+                    <p><strong>Result:</strong> Your own copy on GitHub</p>
+                </div>
+            </div>
+
+            <div style="background: #f0f9ff; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #0ea5e9;">
+                <h4>🤔 Decision Tree - Which Command Should I Use?</h4>
+                <div style="margin-left: 20px;">
+                    <p><strong>❓ Is this a brand new project you're creating?</strong></p>
+                    <p style="margin-left: 20px;">✅ <strong>YES:</strong> Use <code>git init</code></p>
+                    <p style="margin-left: 20px;">❌ <strong>NO:</strong> Continue...</p>
+                    
+                    <p><strong>❓ Do you already have this repository on your computer?</strong></p>
+                    <p style="margin-left: 20px;">✅ <strong>YES:</strong> Use <code>git pull</code> to update</p>
+                    <p style="margin-left: 20px;">❌ <strong>NO:</strong> Continue...</p>
+                    
+                    <p><strong>❓ Do you want to contribute to a project you don't own?</strong></p>
+                    <p style="margin-left: 20px;">✅ <strong>YES:</strong> Fork on GitHub, then clone your fork</p>
+                    <p style="margin-left: 20px;">❌ <strong>NO:</strong> Use <code>git clone</code></p>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Command Comparison Examples</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo4">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive4">Try It</div>
+                </div>
+                <div class="terminal-content active">
+                    <div class="terminal-body" id="demo4" style="display: block;">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git init my-new-project</span>
+                            <span class="terminal-comment"># Start a NEW empty repository</span>
+                            <div class="terminal-output" style="display: none;">Initialized empty Git repository in /path/to/my-new-project/.git/</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git clone https://github.com/bobflay/X7-Git-Session1.git</span>
+                            <span class="terminal-comment"># Copy THIS presentation repository</span>
+                            <div class="terminal-output" style="display: none;">Cloning into 'X7-Git-Session1'...
+remote: Enumerating objects: 42, done.
+remote: Counting objects: 100% (42/42), done.
+remote: Compressing objects: 100% (28/28), done.
+remote: Total 42 (delta 12), reused 35 (delta 8), pack-reused 0
+Receiving objects: 100% (42/42), 25.15 KiB | 3.59 MiB/s, done.
+Resolving deltas: 100% (12/12), done.</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">cd X7-Git-Session1</span>
+                            <span class="terminal-comment"># Enter the cloned repository</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git pull origin main</span>
+                            <span class="terminal-comment"># Update EXISTING local repository</span>
+                            <div class="terminal-output" style="display: none;">From https://github.com/bobflay/X7-Git-Session1
+ * branch            main       -> FETCH_HEAD
+Already up to date.</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">ls -la</span>
+                            <span class="terminal-comment"># See what files you get with different commands</span>
+                            <div class="terminal-output" style="display: none;">total 32
+drwxr-xr-x   7 user  staff   224 Oct 17 12:00 .
+drwxr-xr-x   3 user  staff    96 Oct 17 12:00 ..
+drwxr-xr-x   8 user  staff   256 Oct 17 12:00 .git
+-rw-r--r--   1 user  staff  4521 Oct 17 12:00 README.md
+-rw-r--r--   1 user  staff   125 Oct 17 12:00 aboutme.md
+-rw-r--r--   1 user  staff 45678 Oct 17 12:00 index.html
+-rw-r--r--   1 user  staff 15234 Oct 17 12:00 script.js
+-rw-r--r--   1 user  staff  8765 Oct 17 12:00 styles.css</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git log --oneline</span>
+                            <span class="terminal-comment"># See the commit history you get from cloning</span>
+                            <div class="terminal-output" style="display: none;">abc1234 Add comprehensive Git presentation
+def5678 Update terminal interactions
+ghi9012 Add SSH setup guide
+jkl3456 Initial commit</div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive4" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="interactive-demo">
+                <div class="demo-title">🎯 Compare commands: See the difference between init, clone, and pull!</div>
+            </div>
+
+            <h3>Setting Up SSH for GitHub (Optional but Recommended):</h3>
+            <div style="background: #fff3cd; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 20px 0;">
+                <h4>🔧 Quick SSH Setup Guide:</h4>
+                <ol style="margin-left: 20px;">
+                    <li><strong>Generate SSH key:</strong> <code>ssh-keygen -t ed25519 -C "your-email@example.com"</code></li>
+                    <li><strong>Copy public key:</strong> <code>cat ~/.ssh/id_ed25519.pub</code></li>
+                    <li><strong>Add to GitHub:</strong> Go to GitHub Settings → SSH and GPG keys → New SSH key</li>
+                    <li><strong>Test connection:</strong> <code>ssh -T git@github.com</code></li>
+                </ol>
+                <p><strong>💡 Tip:</strong> Once set up, you can clone with SSH URLs and never type passwords again!</p>
+            </div>
 
             <h3>Basic Operations:</h3>
             <div class="terminal">
@@ -588,27 +1024,27 @@ Receiving objects: 100% (100/100), done.</div>
                     <div class="terminal-title">Daily Git Workflow</div>
                 </div>
                 <div class="terminal-tabs">
-                    <div class="terminal-tab active" data-tab="demo4">Demo</div>
-                    <div class="terminal-tab" data-tab="interactive4">Try It</div>
+                    <div class="terminal-tab active" data-tab="demo5">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive5">Try It</div>
                 </div>
-                <div class="terminal-content">
-                    <div class="terminal-body" id="demo4">
+                <div class="terminal-content active">
+                    <div class="terminal-body" id="demo5" style="display: block;">
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git status</span>
+                            <span class="terminal-command" style="cursor: pointer;">git status</span>
                             <span class="terminal-comment"># Check repository status</span>
                             <div class="terminal-output" style="display: none;">On branch main
 Nothing to commit, working tree clean</div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git add .</span>
+                            <span class="terminal-command" style="cursor: pointer;">git add .</span>
                             <span class="terminal-comment"># Stage all changes</span>
                             <div class="terminal-output" style="display: none;"></div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git commit -m "Initial commit"</span>
+                            <span class="terminal-command" style="cursor: pointer;">git commit -m "Initial commit"</span>
                             <span class="terminal-comment"># Commit staged changes</span>
                             <div class="terminal-output" style="display: none;">[main (root-commit) abc123] Initial commit
  3 files changed, 45 insertions(+)
@@ -618,7 +1054,7 @@ Nothing to commit, working tree clean</div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git log</span>
+                            <span class="terminal-command" style="cursor: pointer;">git log</span>
                             <span class="terminal-comment"># View commit history</span>
                             <div class="terminal-output" style="display: none;">commit abc123def456 (HEAD -> main)
 Author: Your Name &lt;your@email.com&gt;
@@ -627,7 +1063,7 @@ Date: Thu Oct 10 2025 10:30:00
     Initial commit</div>
                         </div>
                     </div>
-                    <div class="interactive-terminal" id="interactive4" style="display: none;">
+                    <div class="interactive-terminal" id="interactive5" style="display: none;">
                         <div class="custom-terminal">
                             <div class="terminal-output-area"></div>
                             <div class="terminal-input-line">
@@ -647,6 +1083,215 @@ Date: Thu Oct 10 2025 10:30:00
         <div class="slide">
             <h2>Branching & Merging</h2>
             
+            <h3>What is a Branch?</h3>
+            <p>A <strong>branch</strong> in Git is like creating a parallel timeline or alternate version of your project where you can make changes without affecting the main codebase.</p>
+            
+            <h3>Real-Life Analogies:</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🌳 Tree Branch</h4>
+                    <p><strong>Main trunk:</strong> Your stable, production code</p>
+                    <p><strong>Branches:</strong> New features growing from the main trunk</p>
+                    <p><strong>Merging:</strong> When a branch is ready, it grows back into the trunk</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📖 Book Drafts</h4>
+                    <p><strong>Main book:</strong> Your published, final version</p>
+                    <p><strong>Draft copies:</strong> Different versions where you try new chapters</p>
+                    <p><strong>Merging:</strong> Adding the best changes back to the main book</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🛤️ Railway Tracks</h4>
+                    <p><strong>Main track:</strong> The primary route (production)</p>
+                    <p><strong>Side tracks:</strong> Where you work on maintenance or new features</p>
+                    <p><strong>Merging:</strong> Rejoining the main track when work is complete</p>
+                </div>
+                <div class="feature-card">
+                    <h4>👥 Team Project</h4>
+                    <p><strong>Main project:</strong> What everyone sees and uses</p>
+                    <p><strong>Individual workspaces:</strong> Where each person works separately</p>
+                    <p><strong>Merging:</strong> Combining everyone's work into the main project</p>
+                </div>
+            </div>
+
+            <h3>Why Use Branches?</h3>
+            <div style="background: #f1f5f9; padding: 25px; border-radius: 10px; margin: 20px 0;">
+                <ul>
+                    <li><strong>🔒 Safety:</strong> Main code stays stable while you experiment</li>
+                    <li><strong>👥 Collaboration:</strong> Multiple people can work on different features simultaneously</li>
+                    <li><strong>🧪 Experimentation:</strong> Try new ideas without breaking existing functionality</li>
+                    <li><strong>📦 Organization:</strong> Keep different features separate until they're ready</li>
+                    <li><strong>🚀 Deployment:</strong> Release features independently when they're complete</li>
+                </ul>
+            </div>
+
+            <h3>Branch Workflow Example:</h3>
+            <div style="background: #f0f9ff; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #0ea5e9;">
+                <p><strong>Scenario:</strong> You're building a website and want to add a new login feature.</p>
+                <ol style="margin-left: 20px;">
+                    <li><strong>Create branch:</strong> <code>git branch feature/user-login</code></li>
+                    <li><strong>Switch to branch:</strong> <code>git checkout feature/user-login</code></li>
+                    <li><strong>Work safely:</strong> Add login code, test, make changes</li>
+                    <li><strong>Main stays safe:</strong> Your website keeps working normally</li>
+                    <li><strong>Ready to deploy:</strong> Merge your login feature back to main</li>
+                    <li><strong>Clean up:</strong> Delete the feature branch when done</li>
+                </ol>
+            </div>
+
+            <h3>🎯 Complete Step-by-Step Branching Example</h3>
+            <div style="background: #fff7ed; padding: 30px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #f97316;">
+                <h4>📋 Project Scenario: This Git Presentation</h4>
+                <p>You have this working Git presentation in the <code>main</code> branch. Your team wants to add a new interactive quiz feature at the end without breaking the existing presentation.</p>
+                
+                <h4>🚀 Step-by-Step Process:</h4>
+                
+                <div style="background: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', monospace;">
+                    <div style="color: #22c55e; font-weight: bold; margin-bottom: 15px;">Step 1: Check current status and see existing branches</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git status</span>
+                        <span style="color: #94a3b8;"># Check what branch you're on</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px; margin-bottom: 10px;">On branch main<br>nothing to commit, working tree clean</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git branch</span>
+                        <span style="color: #94a3b8;"># List all branches</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px;">* main</div>
+                </div>
+
+                <div style="background: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', monospace;">
+                    <div style="color: #22c55e; font-weight: bold; margin-bottom: 15px;">Step 2: Create a new branch for the quiz feature</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git branch feature/interactive-quiz</span>
+                        <span style="color: #94a3b8;"># Create new branch</span>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git branch</span>
+                        <span style="color: #94a3b8;"># See all branches now</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px;">  feature/interactive-quiz<br>* main</div>
+                </div>
+
+                <div style="background: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', monospace;">
+                    <div style="color: #22c55e; font-weight: bold; margin-bottom: 15px;">Step 3: Switch to the new branch</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git checkout feature/interactive-quiz</span>
+                        <span style="color: #94a3b8;"># Move to the new branch</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px; margin-bottom: 10px;">Switched to branch 'feature/interactive-quiz'</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git branch</span>
+                        <span style="color: #94a3b8;"># Confirm you're on the new branch</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px;">* feature/interactive-quiz<br>  main</div>
+                </div>
+
+                <div style="background: #065f46; color: #d1fae5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <div style="font-weight: bold; margin-bottom: 10px;">🛠️ Step 4: Work on your feature (this happens outside Git)</div>
+                    <ul style="margin-left: 20px;">
+                        <li>Create <code>quiz.html</code> - New slide with Git knowledge quiz</li>
+                        <li>Update <code>script.js</code> - Add quiz functionality and scoring</li>
+                        <li>Update <code>styles.css</code> - Add quiz styling and animations</li>
+                        <li>Update <code>index.html</code> - Add quiz slide to presentation</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>💡 Important:</strong> Your main branch still has the original presentation working perfectly!</p>
+                </div>
+
+                <div style="background: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', monospace;">
+                    <div style="color: #22c55e; font-weight: bold; margin-bottom: 15px;">Step 5: Check what files changed</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git status</span>
+                        <span style="color: #94a3b8;"># See what files were modified</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px;">On branch feature/interactive-quiz<br>Untracked files:<br>  quiz.html<br>Modified files:<br>  index.html<br>  script.js<br>  styles.css</div>
+                </div>
+
+                <div style="background: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', monospace;">
+                    <div style="color: #22c55e; font-weight: bold; margin-bottom: 15px;">Step 6: Stage and commit your changes</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git add .</span>
+                        <span style="color: #94a3b8;"># Stage all changes</span>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git commit -m "Add interactive Git quiz feature"</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px;">[feature/interactive-quiz abc1234] Add interactive Git quiz feature<br> 4 files changed, 235 insertions(+)<br> create mode 100644 quiz.html</div>
+                </div>
+
+                <div style="background: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', monospace;">
+                    <div style="color: #22c55e; font-weight: bold; margin-bottom: 15px;">Step 7: Switch back to main branch to see the difference</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git checkout main</span>
+                        <span style="color: #94a3b8;"># Go back to main branch</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px; margin-bottom: 10px;">Switched to branch 'main'</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">ls</span>
+                        <span style="color: #94a3b8;"># Look at files - notice quiz.html is gone!</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px;">aboutme.md  index.html  script.js  styles.css</div>
+                </div>
+
+                <div style="background: #7c2d12; color: #fed7aa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <div style="font-weight: bold; margin-bottom: 10px;">🔍 Step 8: Compare the branches</div>
+                    <div style="margin-bottom: 15px;"><strong>Main branch:</strong> Original Git presentation, 14 slides, no quiz feature</div>
+                    <div><strong>Feature branch:</strong> Has new quiz slide and interactive features, but isolated from main</div>
+                    <p style="margin-top: 15px;"><strong>Test it:</strong> Open the presentation in both branches - they're completely different!</p>
+                </div>
+
+                <div style="background: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', monospace;">
+                    <div style="color: #22c55e; font-weight: bold; margin-bottom: 15px;">Step 9: Merge the feature when ready</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git merge feature/interactive-quiz</span>
+                        <span style="color: #94a3b8;"># Bring quiz changes into main</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px; margin-bottom: 10px;">Updating def5678..abc1234<br>Fast-forward<br> quiz.html  | 85 +++++++++++++++++++++++++++++++++++++++++++<br> index.html | 15 ++++++++<br> script.js  | 45 ++++++++++++++++++++++<br> styles.css | 25 +++++++++++++<br> 4 files changed, 170 insertions(+)</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">ls</span>
+                        <span style="color: #94a3b8;"># Now main has the quiz file!</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px;">aboutme.md  index.html  quiz.html  script.js  styles.css</div>
+                </div>
+
+                <div style="background: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', monospace;">
+                    <div style="color: #22c55e; font-weight: bold; margin-bottom: 15px;">Step 10: Clean up - delete the feature branch</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git branch -d feature/interactive-quiz</span>
+                        <span style="color: #94a3b8;"># Remove branch after successful merge</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px; margin-bottom: 10px;">Deleted branch feature/interactive-quiz (was abc1234).</div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #22c55e;">$</span>
+                        <span style="color: #fbbf24;">git branch</span>
+                        <span style="color: #94a3b8;"># Confirm only main branch remains</span>
+                    </div>
+                    <div style="color: #d1d5db; margin-left: 20px;">* main</div>
+                </div>
+
+                <h4>🎉 Result:</h4>
+                <ul style="margin-left: 20px;">
+                    <li><strong>✅ Safe Development:</strong> Main presentation stayed functional throughout development</li>
+                    <li><strong>✅ Isolated Work:</strong> Quiz feature developed without breaking existing slides</li>
+                    <li><strong>✅ Clean Integration:</strong> New quiz seamlessly added as slide 15</li>
+                    <li><strong>✅ Team Collaboration:</strong> Multiple people could work on different features simultaneously</li>
+                    <li><strong>✅ Easy Rollback:</strong> If quiz had bugs, you could easily revert to working main branch</li>
+                </ul>
+            </div>
+            
             <p>Branches allow you to work on different features simultaneously without affecting the main codebase.</p>
             
             <h3>Branch Commands:</h3>
@@ -658,38 +1303,38 @@ Date: Thu Oct 10 2025 10:30:00
                     <div class="terminal-title">Git Branching Demo</div>
                 </div>
                 <div class="terminal-tabs">
-                    <div class="terminal-tab active" data-tab="demo5">Demo</div>
-                    <div class="terminal-tab" data-tab="interactive5">Try It</div>
+                    <div class="terminal-tab active" data-tab="demo6">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive6">Try It</div>
                 </div>
-                <div class="terminal-content">
-                    <div class="terminal-body" id="demo5">
+                <div class="terminal-content active">
+                    <div class="terminal-body" id="demo6" style="display: block;">
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git branch</span>
+                            <span class="terminal-command" style="cursor: pointer;">git branch</span>
                             <span class="terminal-comment"># List all branches</span>
                             <div class="terminal-output" style="display: none;">* main</div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git branch feature/new-feature</span>
+                            <span class="terminal-command" style="cursor: pointer;">git branch feature/new-feature</span>
                             <span class="terminal-comment"># Create a new branch</span>
                             <div class="terminal-output" style="display: none;"></div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git checkout feature/new-feature</span>
+                            <span class="terminal-command" style="cursor: pointer;">git checkout feature/new-feature</span>
                             <span class="terminal-comment"># Switch to a branch</span>
                             <div class="terminal-output" style="display: none;">Switched to branch 'feature/new-feature'</div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git checkout -b feature/login</span>
+                            <span class="terminal-command" style="cursor: pointer;">git checkout -b feature/login</span>
                             <span class="terminal-comment"># Create and switch to new branch</span>
                             <div class="terminal-output" style="display: none;">Switched to a new branch 'feature/login'</div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git merge feature/new-feature</span>
+                            <span class="terminal-command" style="cursor: pointer;">git merge feature/new-feature</span>
                             <span class="terminal-comment"># Merge branch into current branch</span>
                             <div class="terminal-output" style="display: none;">Updating abc123..def456
 Fast-forward
@@ -697,7 +1342,7 @@ Fast-forward
  1 file changed, 10 insertions(+)</div>
                         </div>
                     </div>
-                    <div class="interactive-terminal" id="interactive5" style="display: none;">
+                    <div class="interactive-terminal" id="interactive6" style="display: none;">
                         <div class="custom-terminal">
                             <div class="terminal-output-area"></div>
                             <div class="terminal-input-line">
@@ -737,20 +1382,20 @@ Fast-forward
                     <div class="terminal-title">Remote Repository Operations</div>
                 </div>
                 <div class="terminal-tabs">
-                    <div class="terminal-tab active" data-tab="demo6">Demo</div>
-                    <div class="terminal-tab" data-tab="interactive6">Try It</div>
+                    <div class="terminal-tab active" data-tab="demo7">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive7">Try It</div>
                 </div>
-                <div class="terminal-content">
-                    <div class="terminal-body" id="demo6">
+                <div class="terminal-content active">
+                    <div class="terminal-body" id="demo7" style="display: block;">
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git remote add origin &lt;url&gt;</span>
+                            <span class="terminal-command" style="cursor: pointer;">git remote add origin &lt;url&gt;</span>
                             <span class="terminal-comment"># Add a remote repository</span>
                             <div class="terminal-output" style="display: none;"></div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git push origin main</span>
+                            <span class="terminal-command" style="cursor: pointer;">git push origin main</span>
                             <span class="terminal-comment"># Upload changes to remote</span>
                             <div class="terminal-output" style="display: none;">Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
@@ -759,7 +1404,7 @@ To github.com:username/repository.git
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git pull origin main</span>
+                            <span class="terminal-command" style="cursor: pointer;">git pull origin main</span>
                             <span class="terminal-comment"># Download and merge changes</span>
                             <div class="terminal-output" style="display: none;">From github.com:username/repository
  * branch            main     -> FETCH_HEAD
@@ -767,12 +1412,12 @@ Already up to date.</div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git tag v1.0.0</span>
+                            <span class="terminal-command" style="cursor: pointer;">git tag v1.0.0</span>
                             <span class="terminal-comment"># Create a release tag</span>
                             <div class="terminal-output" style="display: none;"></div>
                         </div>
                     </div>
-                    <div class="interactive-terminal" id="interactive6" style="display: none;">
+                    <div class="interactive-terminal" id="interactive7" style="display: none;">
                         <div class="custom-terminal">
                             <div class="terminal-output-area"></div>
                             <div class="terminal-input-line">
@@ -848,33 +1493,33 @@ Already up to date.</div>
                     <div class="terminal-title">Git Recovery Commands</div>
                 </div>
                 <div class="terminal-tabs">
-                    <div class="terminal-tab active" data-tab="demo7">Demo</div>
-                    <div class="terminal-tab" data-tab="interactive7">Try It</div>
+                    <div class="terminal-tab active" data-tab="demo8">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive8">Try It</div>
                 </div>
-                <div class="terminal-content">
-                    <div class="terminal-body" id="demo7">
+                <div class="terminal-content active">
+                    <div class="terminal-body" id="demo8" style="display: block;">
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git checkout -- index.html</span>
+                            <span class="terminal-command" style="cursor: pointer;">git checkout -- index.html</span>
                             <span class="terminal-comment"># Discard changes in working directory</span>
                             <div class="terminal-output" style="display: none;"></div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git reset HEAD index.html</span>
+                            <span class="terminal-command" style="cursor: pointer;">git reset HEAD index.html</span>
                             <span class="terminal-comment"># Unstage a file</span>
                             <div class="terminal-output" style="display: none;">Unstaged changes after reset:
 M	index.html</div>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">git revert abc123</span>
+                            <span class="terminal-command" style="cursor: pointer;">git revert abc123</span>
                             <span class="terminal-comment"># Create new commit that undoes changes</span>
                             <div class="terminal-output" style="display: none;">[main def456] Revert "problematic commit"
  1 file changed, 5 deletions(-)</div>
                         </div>
                     </div>
-                    <div class="interactive-terminal" id="interactive7" style="display: none;">
+                    <div class="interactive-terminal" id="interactive8" style="display: none;">
                         <div class="custom-terminal">
                             <div class="terminal-output-area"></div>
                             <div class="terminal-input-line">
