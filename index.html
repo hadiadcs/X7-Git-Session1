@@ -1543,7 +1543,235 @@ M	index.html</div>
             </ul>
         </div>
 
-        <!-- Slide 14: Next Steps -->
+        <!-- Slide 14: Commits & Branch Management -->
+        <div class="slide">
+            <h2>Git Commits & Branch Management</h2>
+
+            <h3>How to Make a Commit</h3>
+            <p>A commit is a snapshot of your project at a specific point in time. It saves your changes to the local repository with a descriptive message.</p>
+
+            <div style="background: #f1f5f9; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h4>📝 Steps to Create a Commit:</h4>
+                <ol>
+                    <li><strong>Stage your changes:</strong> Add files to the staging area</li>
+                    <li><strong>Create the commit:</strong> Save the staged changes with a message</li>
+                    <li><strong>Verify the commit:</strong> Check that your commit was created</li>
+                </ol>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Making a Commit</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo9">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive9">Try It</div>
+                </div>
+                <div class="terminal-content active">
+                    <div class="terminal-body" id="demo9" style="display: block;">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git status</span>
+                            <span class="terminal-comment"># Check which files have changes</span>
+                            <div class="terminal-output" style="display: none;">On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  modified:   index.html
+  modified:   styles.css</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git add index.html styles.css</span>
+                            <span class="terminal-comment"># Stage specific files (or use 'git add .' for all files)</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git commit -m "Update homepage design and styles"</span>
+                            <span class="terminal-comment"># Create commit with descriptive message</span>
+                            <div class="terminal-output" style="display: none;">[main a1b2c3d] Update homepage design and styles
+ 2 files changed, 47 insertions(+), 12 deletions(-)</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git log --oneline -3</span>
+                            <span class="terminal-comment"># View recent commits</span>
+                            <div class="terminal-output" style="display: none;">a1b2c3d Update homepage design and styles
+f4e5d6c Add contact form
+b3c4d5e Initial commit</div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive9" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>How to Discard the Last Commit</h3>
+            <p>Sometimes you need to undo a commit. Git provides several ways to discard commits depending on your needs:</p>
+
+            <div class="feature-grid" style="margin: 20px 0;">
+                <div class="feature-card">
+                    <h4>🔄 Soft Reset (Keep Changes)</h4>
+                    <p>Undo the commit but keep your changes staged:</p>
+                    <code style="display: block; background: #1e293b; color: #e2e8f0; padding: 10px; border-radius: 5px; margin-top: 10px;">git reset --soft HEAD~1</code>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Use when you want to recommit with changes</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚠️ Mixed Reset (Default)</h4>
+                    <p>Undo the commit and unstage changes:</p>
+                    <code style="display: block; background: #1e293b; color: #e2e8f0; padding: 10px; border-radius: 5px; margin-top: 10px;">git reset HEAD~1</code>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Changes remain in working directory</p>
+                </div>
+                <div class="feature-card">
+                    <h4>❌ Hard Reset (Discard Everything)</h4>
+                    <p>Undo the commit and discard all changes:</p>
+                    <code style="display: block; background: #1e293b; color: #e2e8f0; padding: 10px; border-radius: 5px; margin-top: 10px;">git reset --hard HEAD~1</code>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: #dc2626;">⚠️ WARNING: This permanently deletes changes!</p>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Discarding Commits</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo10">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive10">Try It</div>
+                </div>
+                <div class="terminal-content active">
+                    <div class="terminal-body" id="demo10" style="display: block;">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git log --oneline -3</span>
+                            <span class="terminal-comment"># View recent commits</span>
+                            <div class="terminal-output" style="display: none;">a1b2c3d (HEAD -> main) Accidental commit - need to undo
+f4e5d6c Add contact form
+b3c4d5e Initial commit</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git reset --soft HEAD~1</span>
+                            <span class="terminal-comment"># Undo last commit, keep changes staged</span>
+                            <div class="terminal-output" style="display: none;"></div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git status</span>
+                            <span class="terminal-comment"># Check status after reset</span>
+                            <div class="terminal-output" style="display: none;">On branch main
+Changes to be committed:
+  modified:   index.html
+  modified:   styles.css</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git log --oneline -3</span>
+                            <span class="terminal-comment"># Verify commit was removed</span>
+                            <div class="terminal-output" style="display: none;">f4e5d6c (HEAD -> main) Add contact form
+b3c4d5e Initial commit</div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive10" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>How to Create a New Branch</h3>
+            <p>Branches allow you to work on different features or experiments without affecting the main codebase.</p>
+
+            <div style="background: #f1f5f9; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h4>🌿 Branch Creation Methods:</h4>
+                <ul>
+                    <li><strong>Create and stay:</strong> <code>git branch feature-name</code> (creates branch but doesn't switch)</li>
+                    <li><strong>Create and switch:</strong> <code>git checkout -b feature-name</code> (creates and switches in one command)</li>
+                    <li><strong>Modern way:</strong> <code>git switch -c feature-name</code> (newer, clearer syntax)</li>
+                </ul>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">Creating and Managing Branches</div>
+                </div>
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active" data-tab="demo11">Demo</div>
+                    <div class="terminal-tab" data-tab="interactive11">Try It</div>
+                </div>
+                <div class="terminal-content active">
+                    <div class="terminal-body" id="demo11" style="display: block;">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git branch</span>
+                            <span class="terminal-comment"># List all local branches</span>
+                            <div class="terminal-output" style="display: none;">* main</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git checkout -b feature/new-dashboard</span>
+                            <span class="terminal-comment"># Create and switch to new branch</span>
+                            <div class="terminal-output" style="display: none;">Switched to a new branch 'feature/new-dashboard'</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git branch</span>
+                            <span class="terminal-comment"># Verify you're on the new branch</span>
+                            <div class="terminal-output" style="display: none;">* feature/new-dashboard
+  main</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git checkout main</span>
+                            <span class="terminal-comment"># Switch back to main branch</span>
+                            <div class="terminal-output" style="display: none;">Switched to branch 'main'</div>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" style="cursor: pointer;">git branch -d feature/new-dashboard</span>
+                            <span class="terminal-comment"># Delete branch (if no longer needed)</span>
+                            <div class="terminal-output" style="display: none;">Deleted branch feature/new-dashboard (was a1b2c3d).</div>
+                        </div>
+                    </div>
+                    <div class="interactive-terminal" id="interactive11" style="display: none;">
+                        <div class="custom-terminal">
+                            <div class="terminal-output-area"></div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input type="text" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-demo">
+                <div class="demo-title">💡 Pro Tip: Always create a new branch for each feature or bug fix. This keeps your main branch clean and makes collaboration easier!</div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Next Steps -->
         <div class="slide">
             <h2>Next Steps</h2>
             
@@ -1573,7 +1801,7 @@ M	index.html</div>
     </div>
 
     <div class="slide-counter">
-        <span id="current-slide">1</span> / <span id="total-slides">9</span>
+        <span id="current-slide">1</span> / <span id="total-slides">15</span>
     </div>
 
     <div class="navigation">
