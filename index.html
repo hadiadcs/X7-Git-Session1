@@ -1365,6 +1365,229 @@ Fast-forward
                 <li><strong>release/*:</strong> Prepare releases for deployment</li>
                 <li><strong>hotfix/*:</strong> Quick fixes for production issues</li>
             </ul>
+
+            <h3 style="margin-top: 40px;">Test Your Knowledge: Interactive Quiz</h3>
+
+            <!-- Quiz Module -->
+            <div id="branching-quiz" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; margin: 20px 0; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <div style="text-align: right; margin-bottom: 15px;">
+                    <button onclick="copyQuizCode()" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-weight: bold; transition: all 0.3s;">
+                        📋 Copy Quiz Code
+                    </button>
+                </div>
+
+                <h4 style="text-align: center; margin-bottom: 25px; font-size: 1.5em;">🎯 Branching & Merging Quiz</h4>
+
+                <div id="quiz-container">
+                    <!-- Question 1 -->
+                    <div class="quiz-question" data-question="1" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <p style="font-weight: bold; margin-bottom: 15px;">1. What command creates a new branch AND switches to it?</p>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                A) git branch new-feature
+                            </button>
+                            <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 1)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                B) git checkout -b new-feature
+                            </button>
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                C) git merge new-feature
+                            </button>
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                D) git add new-feature
+                            </button>
+                        </div>
+                        <div class="quiz-feedback" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;"></div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="quiz-question" data-question="2" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <p style="font-weight: bold; margin-bottom: 15px;">2. What is the main purpose of using branches in Git?</p>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 2)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                A) To delete old code
+                            </button>
+                            <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 2)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                B) To work on features without affecting the main codebase
+                            </button>
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 2)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                C) To make commits faster
+                            </button>
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 2)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                D) To upload files to GitHub
+                            </button>
+                        </div>
+                        <div class="quiz-feedback" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;"></div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="quiz-question" data-question="3" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <p style="font-weight: bold; margin-bottom: 15px;">3. How do you merge a feature branch into the main branch?</p>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 3)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                A) git branch merge feature-name
+                            </button>
+                            <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 3)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                B) Switch to main, then git merge feature-name
+                            </button>
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 3)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                C) git push feature-name main
+                            </button>
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 3)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                D) git add main feature-name
+                            </button>
+                        </div>
+                        <div class="quiz-feedback" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;"></div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="quiz-question" data-question="4" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <p style="font-weight: bold; margin-bottom: 15px;">4. What should you do after successfully merging a feature branch?</p>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 4)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                A) Create another branch immediately
+                            </button>
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 4)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                B) Push to a different repository
+                            </button>
+                            <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 4)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                C) Delete the feature branch to keep things clean
+                            </button>
+                            <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 4)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; color: white; transition: all 0.3s;">
+                                D) Rename the main branch
+                            </button>
+                        </div>
+                        <div class="quiz-feedback" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;"></div>
+                    </div>
+                </div>
+
+                <!-- Quiz Score -->
+                <div id="quiz-score" style="text-align: center; margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.2); border-radius: 10px; display: none;">
+                    <h4 style="font-size: 1.3em; margin-bottom: 10px;">🎉 Quiz Complete!</h4>
+                    <p style="font-size: 1.5em; font-weight: bold;" id="score-text"></p>
+                    <button onclick="resetQuiz()" style="background: white; color: #667eea; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 15px; transition: all 0.3s;">
+                        🔄 Try Again
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Code Template (Hidden) -->
+            <div id="quiz-code-template" style="display: none;">
+&lt;!-- Interactive Quiz Module --&gt;
+&lt;div id="branching-quiz" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; margin: 20px 0; color: white;"&gt;
+    &lt;h4 style="text-align: center; margin-bottom: 25px;"&gt;🎯 Your Quiz Title&lt;/h4&gt;
+
+    &lt;!-- Question 1 --&gt;
+    &lt;div class="quiz-question" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;"&gt;
+        &lt;p style="font-weight: bold; margin-bottom: 15px;"&gt;1. Your question here?&lt;/p&gt;
+        &lt;div style="display: flex; flex-direction: column; gap: 10px;"&gt;
+            &lt;button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; color: white;"&gt;
+                A) Option 1
+            &lt;/button&gt;
+            &lt;button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 1)" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); padding: 12px; border-radius: 8px; cursor: pointer; color: white;"&gt;
+                B) Correct Answer
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="quiz-feedback" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div id="quiz-score" style="text-align: center; margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.2); border-radius: 10px; display: none;"&gt;
+        &lt;h4&gt;🎉 Quiz Complete!&lt;/h4&gt;
+        &lt;p id="score-text"&gt;&lt;/p&gt;
+        &lt;button onclick="resetQuiz()" style="background: white; color: #667eea; padding: 12px 25px; border-radius: 8px; cursor: pointer;"&gt;🔄 Try Again&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+let quizScore = 0;
+let answeredQuestions = new Set();
+const totalQuestions = 4; // Update based on your questions
+
+function checkAnswer(button, questionNum) {
+    // Prevent re-answering
+    if (answeredQuestions.has(questionNum)) return;
+
+    const isCorrect = button.getAttribute('data-correct') === 'true';
+    const questionDiv = button.closest('.quiz-question');
+    const allOptions = questionDiv.querySelectorAll('.quiz-option');
+    const feedback = questionDiv.querySelector('.quiz-feedback');
+
+    // Disable all options
+    allOptions.forEach(opt =&gt; opt.style.pointerEvents = 'none');
+
+    // Mark answer
+    if (isCorrect) {
+        button.style.background = 'rgba(34, 197, 94, 0.8)';
+        button.style.borderColor = '#22c55e';
+        feedback.innerHTML = '✅ Correct!';
+        feedback.style.background = 'rgba(34, 197, 94, 0.3)';
+        feedback.style.display = 'block';
+        quizScore++;
+    } else {
+        button.style.background = 'rgba(239, 68, 68, 0.8)';
+        button.style.borderColor = '#ef4444';
+        // Show correct answer
+        allOptions.forEach(opt =&gt; {
+            if (opt.getAttribute('data-correct') === 'true') {
+                opt.style.background = 'rgba(34, 197, 94, 0.8)';
+                opt.style.borderColor = '#22c55e';
+            }
+        });
+        feedback.innerHTML = '❌ Incorrect. The correct answer is highlighted.';
+        feedback.style.background = 'rgba(239, 68, 68, 0.3)';
+        feedback.style.display = 'block';
+    }
+
+    answeredQuestions.add(questionNum);
+
+    // Check if all questions answered
+    if (answeredQuestions.size === totalQuestions) {
+        setTimeout(showScore, 1000);
+    }
+}
+
+function showScore() {
+    const percentage = (quizScore / totalQuestions) * 100;
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreText = document.getElementById('score-text');
+
+    let message = '';
+    if (percentage === 100) message = 'Perfect! 🌟';
+    else if (percentage &gt;= 75) message = 'Great job! 👏';
+    else if (percentage &gt;= 50) message = 'Good effort! 👍';
+    else message = 'Keep learning! 📚';
+
+    scoreText.innerHTML = `You scored ${quizScore}/${totalQuestions} - ${message}`;
+    scoreDiv.style.display = 'block';
+}
+
+function resetQuiz() {
+    quizScore = 0;
+    answeredQuestions.clear();
+
+    // Reset all options
+    document.querySelectorAll('.quiz-option').forEach(opt =&gt; {
+        opt.style.background = 'rgba(255,255,255,0.2)';
+        opt.style.borderColor = 'rgba(255,255,255,0.3)';
+        opt.style.pointerEvents = 'auto';
+    });
+
+    // Hide feedbacks
+    document.querySelectorAll('.quiz-feedback').forEach(f =&gt; f.style.display = 'none');
+
+    // Hide score
+    document.getElementById('quiz-score').style.display = 'none';
+}
+
+function copyQuizCode() {
+    const codeTemplate = document.getElementById('quiz-code-template').textContent;
+    navigator.clipboard.writeText(codeTemplate).then(() =&gt; {
+        alert('✅ Quiz code copied! Paste it into your presentation and customize the questions.');
+    }).catch(() =&gt; {
+        alert('❌ Failed to copy. Please try again.');
+    });
+}
+&lt;/script&gt;
+            </div>
         </div>
 
         <!-- Slide 11: Pull Requests -->
