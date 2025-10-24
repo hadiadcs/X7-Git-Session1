@@ -1116,15 +1116,19 @@ function resetQuiz() {
     document.getElementById('quiz-score').style.display = 'none';
 
     // Scroll to quiz start
-    document.getElementById('branching-quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const quizContainer = document.getElementById('quiz-interactive');
+    if (quizContainer) {
+        quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
 
 function copyQuizCode() {
-    const codeTemplate = document.getElementById('quiz-code-template').textContent;
+    const codeDisplay = document.getElementById('quiz-code-display');
+    const codeText = codeDisplay.textContent;
 
     // Create a temporary textarea element
     const textarea = document.createElement('textarea');
-    textarea.value = codeTemplate;
+    textarea.value = codeText;
     textarea.style.position = 'fixed';
     textarea.style.opacity = '0';
     document.body.appendChild(textarea);
@@ -1137,7 +1141,7 @@ function copyQuizCode() {
         alert('✅ Quiz code copied to clipboard!\n\nPaste it into your presentation and customize:\n- Questions and answers\n- Update totalQuestions variable\n- Change colors and styling');
     } catch (err) {
         // Fallback for modern browsers
-        navigator.clipboard.writeText(codeTemplate).then(() => {
+        navigator.clipboard.writeText(codeText).then(() => {
             alert('✅ Quiz code copied to clipboard!\n\nPaste it into your presentation and customize:\n- Questions and answers\n- Update totalQuestions variable\n- Change colors and styling');
         }).catch(() => {
             alert('❌ Failed to copy. Please try selecting the code manually.');
@@ -1145,4 +1149,31 @@ function copyQuizCode() {
     }
 
     document.body.removeChild(textarea);
+}
+
+function switchQuizTab(tabName) {
+    // Hide all tab contents
+    document.querySelectorAll('.quiz-tab-content').forEach(tab => {
+        tab.style.display = 'none';
+    });
+
+    // Remove active class from all tabs
+    const parentTerminal = document.querySelector('.terminal');
+    if (parentTerminal) {
+        parentTerminal.querySelectorAll('.terminal-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        // Add active class to clicked tab
+        const clickedTab = parentTerminal.querySelector(`[data-tab="${tabName}"]`);
+        if (clickedTab) {
+            clickedTab.classList.add('active');
+        }
+    }
+
+    // Show selected tab content
+    const selectedTab = document.getElementById(tabName);
+    if (selectedTab) {
+        selectedTab.style.display = 'block';
+    }
 }
