@@ -1368,26 +1368,16 @@ Fast-forward
 
             <h3 style="margin-top: 40px;">Test Your Knowledge: Interactive Quiz</h3>
 
-            <!-- Quiz Module with Tabs -->
-            <div class="terminal" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <!-- Interactive Quiz Section -->
+            <div class="terminal" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 30px;">
                 <div class="terminal-header" style="background: rgba(0,0,0,0.2); border-bottom: 2px solid rgba(255,255,255,0.1);">
                     <div class="terminal-button close"></div>
                     <div class="terminal-button minimize"></div>
                     <div class="terminal-button maximize"></div>
                     <div class="terminal-title" style="color: white;">🎯 Branching & Merging Quiz</div>
                 </div>
-                <div class="terminal-tabs">
-                    <div class="terminal-tab active" data-tab="quiz-interactive" onclick="switchQuizTab('quiz-interactive')" style="color: white; border-color: rgba(255,255,255,0.3);">
-                        Interactive Quiz
-                    </div>
-                    <div class="terminal-tab" data-tab="quiz-code" onclick="switchQuizTab('quiz-code')" style="color: white; border-color: rgba(255,255,255,0.3);">
-                        View Code
-                    </div>
-                </div>
-                <div class="terminal-content" style="background: transparent;">
-                    <!-- Interactive Quiz Tab -->
-                    <div id="quiz-interactive" class="quiz-tab-content" style="display: block; padding: 20px; color: white;">
-                        <div id="quiz-container">
+                <div class="terminal-content active" style="background: transparent; padding: 20px; color: white;">
+                    <div id="quiz-container">
                             <!-- Question 1 -->
                             <div class="quiz-question" data-question="1" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
                                 <p style="font-weight: bold; margin-bottom: 15px;">1. What command creates a new branch AND switches to it?</p>
@@ -1467,24 +1457,33 @@ Fast-forward
                                 </div>
                                 <div class="quiz-feedback" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;"></div>
                             </div>
-                        </div>
-
-                        <!-- Quiz Score -->
-                        <div id="quiz-score" style="text-align: center; margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.2); border-radius: 10px; display: none;">
-                            <h4 style="font-size: 1.3em; margin-bottom: 10px;">🎉 Quiz Complete!</h4>
-                            <p style="font-size: 1.5em; font-weight: bold;" id="score-text"></p>
-                            <button onclick="resetQuiz()" style="background: white; color: #667eea; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 15px; transition: all 0.3s;">
-                                🔄 Try Again
-                            </button>
-                        </div>
                     </div>
 
-                    <!-- Code View Tab -->
-                    <div id="quiz-code" class="quiz-tab-content" style="display: none; padding: 20px;">
-                        <div style="text-align: right; margin-bottom: 15px;">
-                            <button onclick="copyQuizCode()" style="background: rgba(255,255,255,0.3); color: white; border: 2px solid white; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 1em; font-weight: bold; transition: all 0.3s;">
-                                📋 Copy Code to Clipboard
-                            </button>
+                    <!-- Quiz Score -->
+                    <div id="quiz-score" style="text-align: center; margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.2); border-radius: 10px; display: none;">
+                        <h4 style="font-size: 1.3em; margin-bottom: 10px;">🎉 Quiz Complete!</h4>
+                        <p style="font-size: 1.5em; font-weight: bold;" id="score-text"></p>
+                        <button onclick="resetQuiz()" style="background: white; color: #667eea; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 15px; transition: all 0.3s;">
+                            🔄 Try Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Implementation Section -->
+            <h3 style="margin-top: 40px;">📝 Quiz Code Implementation</h3>
+            <div class="terminal" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <div class="terminal-header" style="background: rgba(0,0,0,0.2); border-bottom: 2px solid rgba(255,255,255,0.1);">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title" style="color: white;">💻 View Code</div>
+                </div>
+                <div class="terminal-content active" style="background: transparent; padding: 20px;">
+                    <div style="text-align: right; margin-bottom: 15px;">
+                        <button onclick="copyQuizCode()" style="background: rgba(255,255,255,0.3); color: white; border: 2px solid white; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 1em; font-weight: bold; transition: all 0.3s;">
+                            📋 Copy Code to Clipboard
+                        </button>
                         </div>
                         <pre id="quiz-code-display" style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; overflow-x: auto; color: #e2e8f0; font-family: 'Courier New', monospace; font-size: 0.85em; line-height: 1.6; max-height: 500px; overflow-y: auto;"><code>&lt;!-- Interactive Quiz Module --&gt;
 &lt;div class="terminal" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"&gt;
@@ -1627,9 +1626,90 @@ function switchQuizTab(tabName) {
                                 <li>Each question needs a unique <code>data-question</code> number</li>
                             </ul>
                         </div>
-                    </div>
                 </div>
             </div>
+
+            <script>
+            // Quiz functionality
+            let quizScore = 0;
+            let answeredQuestions = new Set();
+            const totalQuestions = 4;
+
+            function checkAnswer(button, questionNum) {
+                if (answeredQuestions.has(questionNum)) return;
+
+                const isCorrect = button.getAttribute('data-correct') === 'true';
+                const questionDiv = button.closest('.quiz-question');
+                const allOptions = questionDiv.querySelectorAll('.quiz-option');
+                const feedback = questionDiv.querySelector('.quiz-feedback');
+
+                allOptions.forEach(opt => opt.style.pointerEvents = 'none');
+
+                if (isCorrect) {
+                    button.style.background = 'rgba(34, 197, 94, 0.8)';
+                    button.style.borderColor = '#22c55e';
+                    feedback.innerHTML = '✅ Correct!';
+                    feedback.style.background = 'rgba(34, 197, 94, 0.3)';
+                    feedback.style.display = 'block';
+                    quizScore++;
+                } else {
+                    button.style.background = 'rgba(239, 68, 68, 0.8)';
+                    button.style.borderColor = '#ef4444';
+                    allOptions.forEach(opt => {
+                        if (opt.getAttribute('data-correct') === 'true') {
+                            opt.style.background = 'rgba(34, 197, 94, 0.8)';
+                            opt.style.borderColor = '#22c55e';
+                        }
+                    });
+                    feedback.innerHTML = '❌ Incorrect. The correct answer is highlighted.';
+                    feedback.style.background = 'rgba(239, 68, 68, 0.3)';
+                    feedback.style.display = 'block';
+                }
+
+                answeredQuestions.add(questionNum);
+                if (answeredQuestions.size === totalQuestions) {
+                    setTimeout(showScore, 1000);
+                }
+            }
+
+            function showScore() {
+                const percentage = (quizScore / totalQuestions) * 100;
+                const scoreDiv = document.getElementById('quiz-score');
+                const scoreText = document.getElementById('score-text');
+
+                let message = '';
+                if (percentage === 100) message = 'Perfect! 🌟';
+                else if (percentage >= 75) message = 'Great job! 👏';
+                else if (percentage >= 50) message = 'Good effort! 👍';
+                else message = 'Keep learning! 📚';
+
+                scoreText.innerHTML = `You scored ${quizScore}/${totalQuestions} - ${message}`;
+                scoreDiv.style.display = 'block';
+            }
+
+            function resetQuiz() {
+                quizScore = 0;
+                answeredQuestions.clear();
+                document.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.style.background = 'rgba(255,255,255,0.2)';
+                    opt.style.borderColor = 'rgba(255,255,255,0.3)';
+                    opt.style.pointerEvents = 'auto';
+                });
+                document.querySelectorAll('.quiz-feedback').forEach(f => {
+                    f.style.display = 'none';
+                });
+                document.getElementById('quiz-score').style.display = 'none';
+            }
+
+            function copyQuizCode() {
+                const codeText = document.getElementById('quiz-code-display').textContent;
+                navigator.clipboard.writeText(codeText).then(() => {
+                    alert('Code copied to clipboard!');
+                }).catch(err => {
+                    console.error('Failed to copy code:', err);
+                });
+            }
+            </script>
         </div>
 
         <!-- Slide 11: Pull Requests -->
